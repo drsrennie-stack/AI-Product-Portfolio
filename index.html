@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Product Portfolio | Dr. Sharilyn Rennie</title>
-<meta name="description" content="Open, accessible learning tools for anatomy, physiology, and health science education, designed by Dr. Sharilyn Rennie, Professor of Biology at Solano Community College.">
+<meta name="description" content="Open, accessible learning tools for health science education, designed by Dr. Sharilyn Rennie, Professor of Biology at Solano Community College.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,15 +14,13 @@
     --navy: #0B1530;
     --navy-deep: #060C1E;
     --navy-15: rgba(11, 21, 48, 0.15);
-    --navy-30: rgba(11, 21, 48, 0.30);
-    --control: #6D7383;
     --navy-tint: #EEF0F4;
+    --control: #6D7383;
     --terra: #8B3A2E;
     --terra-deep: #6E2C22;
     --muted: #4F576A;
     --gold-on-navy: #DCB45C;
     --white: #FFFFFF;
-    --page: #FFFFFF;
     --display: "Open Sans", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --base: 18px;
@@ -34,165 +32,128 @@
   html.space-lg body { letter-spacing: 0.02em; word-spacing: 0.08em; }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--page);
-    color: var(--navy);
-    font-family: var(--body);
-    font-size: var(--base);
-    line-height: var(--leading);
-    text-align: left;
-  }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--white); color: var(--navy); font-family: var(--body); font-size: var(--base); line-height: var(--leading); text-align: left; }
   em, i, cite, dfn, var, address { font-style: normal; }
   p { margin: 0 0 var(--gap); max-width: 68ch; }
-  a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { color: var(--terra); text-decoration-thickness: 2px; }
+  a { color: var(--navy); text-underline-offset: 3px; }
+  a:hover { color: var(--terra); }
   :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  [hidden] { display: none !important; }
 
-  .skip-link {
-    position: absolute; left: 16px; top: -120px; z-index: 20;
-    background: var(--navy); color: var(--white); padding: 12px 18px;
-    border-radius: 4px; font-weight: 700; text-decoration: none;
-  }
+  .skip-link { position: absolute; left: 16px; top: -120px; z-index: 50; background: var(--navy); color: var(--white); padding: 12px 18px; border-radius: 4px; font-weight: 700; text-decoration: none; }
   .skip-link:focus { top: 16px; color: var(--white); }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
   @media (min-width: 720px) { .wrap { padding: 0 40px; } }
 
   /* Reading options */
-  .toolbar { border-bottom: 1px solid var(--navy-15); background: var(--white); }
+  .toolbar { border-bottom: 1px solid var(--navy-15); }
   .toolbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; padding-bottom: 10px; }
-  .brand { font-weight: 700; font-size: 0.85em; color: var(--navy); }
+  .brand { font-weight: 700; font-size: 0.85em; }
   .reading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
   .reading-label { font-size: 0.8em; font-weight: 600; color: var(--muted); }
-  .toggle {
-    font: inherit; font-size: 0.8em; font-weight: 600; color: var(--navy);
-    background: var(--white); border: 1px solid var(--control); border-radius: 4px;
-    padding: 8px 12px; min-height: 44px; cursor: pointer;
-  }
+  .toggle { font: inherit; font-size: 0.8em; font-weight: 600; color: var(--navy); background: var(--white); border: 1px solid var(--control); border-radius: 4px; padding: 8px 12px; min-height: 44px; cursor: pointer; }
   .toggle[aria-pressed="true"] { background: var(--navy); color: var(--white); border-color: var(--navy); }
-  .toggle:hover { border-color: var(--navy); }
 
   /* Header */
-  header.site { padding: 56px 0 40px; }
-  .eyebrow {
-    font-family: var(--body); font-size: 13px; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra);
-    margin: 0 0 14px;
-  }
+  header.site { padding: 52px 0 36px; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra); margin: 0 0 14px; }
   h1, h2 { font-family: var(--display); font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
-  h1 { font-size: clamp(34px, 5.4vw, 54px); line-height: 1.1; margin: 0 0 18px; max-width: 20ch; }
-  h1 .accent, h2 .accent { color: var(--terra); }
-  h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; margin: 0 0 12px; }
-  h3 { font-family: var(--body); font-weight: 700; font-size: 1.1em; line-height: 1.3; color: var(--navy); margin: 0 0 8px; }
-  .lede { font-size: 1.15em; line-height: 1.55; color: var(--navy); }
-  .who { font-weight: 600; color: var(--muted); margin-bottom: 28px; }
+  h1 { font-size: clamp(32px, 5vw, 50px); line-height: 1.1; margin: 0 0 16px; max-width: 20ch; }
+  .accent { color: var(--terra); }
+  h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.15; margin: 0 0 6px; }
+  h3 { font-weight: 700; font-size: 1.05em; line-height: 1.3; margin: 0 0 8px; }
+  .lede { font-size: 1.12em; line-height: 1.55; }
+  .who { font-weight: 600; color: var(--muted); margin: 0; }
 
-  .summary {
-    border: 1px solid var(--navy-15); border-radius: 8px; background: var(--white);
-    padding: 22px 24px; max-width: 760px;
+  /* Groups */
+  section.group { padding: 44px 0; border-top: 1px solid var(--navy-15); }
+  .group-note { color: var(--muted); margin: 0 0 6px; }
+  .howto { font-size: 0.9em; color: var(--muted); margin: 0 0 26px; }
+  .tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 18px 14px; }
+  .tile { position: relative; }
+  .tile-link {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 14px 8px 12px; border-radius: 8px; text-decoration: none; color: var(--navy);
+    min-height: 44px; text-align: center;
   }
-  .summary h2 { font-family: var(--body); font-size: 1em; font-weight: 700; margin: 0 0 10px; letter-spacing: 0; }
-  .summary ul { margin: 0; padding-left: 1.2em; }
-  .summary li { margin: 0 0 6px; }
-  .summary li:last-child { margin: 0; }
-
-  nav.jump { margin-top: 28px; }
-  nav.jump h2 { font-family: var(--body); font-size: 0.8em; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
-  nav.jump ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-  nav.jump a {
-    display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px;
-    border: 1px solid var(--control); border-radius: 4px; font-weight: 600; font-size: 0.9em;
-    text-decoration: none; background: var(--white);
+  .tile-link:hover { background: var(--navy-tint); color: var(--navy); }
+  .icon {
+    width: 68px; height: 68px; border-radius: 16px; display: grid; place-items: center;
+    background: var(--navy); color: var(--white);
   }
-  nav.jump a:hover { border-color: var(--navy); color: var(--navy); background: var(--navy-tint); }
+  .icon svg { width: 36px; height: 36px; }
+  .tone-terra .icon { background: var(--terra); }
+  .tone-deep .icon { background: var(--navy-deep); color: var(--gold-on-navy); }
+  .tile-name { font-weight: 700; font-size: 0.86em; line-height: 1.3; }
+  .tile-short { display: none; font-size: 0.8em; color: var(--muted); line-height: 1.4; }
 
-  /* Sections */
-  section.block { padding: 56px 0; border-top: 1px solid var(--navy-15); }
-  .section-intro { color: var(--muted); }
+  /* Description box: shows on hover and on keyboard focus (WCAG 1.4.13) */
+  .tip {
+    position: absolute; top: calc(100% - 4px); left: 50%; transform: translateX(-50%);
+    width: 280px; max-width: calc(100vw - 32px); z-index: 30;
+    background: var(--white); color: var(--navy); border: 1px solid var(--navy); border-radius: 8px;
+    padding: 14px 16px; font-size: 0.86em; line-height: 1.5;
+    box-shadow: 0 8px 20px rgba(11, 21, 48, 0.16);
+    display: none;
+  }
+  .tip strong { display: block; font-size: 1.02em; margin-bottom: 4px; }
+  .tip p { margin: 0 0 8px; }
+  .tip .tip-meta { color: var(--muted); margin: 0; }
+  .tile:hover .tip, .tile:focus-within .tip { display: block; }
+  .tile.dismissed .tip { display: none; }
 
-  /* Areas of contribution */
-  .steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px; }
-  .step { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; border: 1px solid var(--navy-15); border-radius: 8px; padding: 22px; background: var(--white); }
-  .step .num { font-family: var(--display); font-weight: 800; font-size: 2.1em; line-height: 1; color: var(--terra); min-width: 1.4em; }
-  .step p { margin: 0; color: var(--navy); }
-  .step .see { display: block; margin-top: 8px; color: var(--muted); font-size: 0.92em; }
+  /* Touch screens have no hover: show the short line under each name instead */
+  @media (hover: none) {
+    .tip, .tile:hover .tip, .tile:focus-within .tip { display: none; }
+    .tile-short { display: block; }
+  }
 
-  /* Statement band */
-  .band { background: var(--navy); color: var(--white); padding: 44px 0; }
-  .band p { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; margin: 0; max-width: 34ch; color: var(--white); }
+  /* Band */
+  .band { background: var(--navy); color: var(--white); padding: 40px 0; }
+  .band p { font-family: var(--display); font-weight: 700; font-size: clamp(21px, 2.8vw, 28px); line-height: 1.3; margin: 0; max-width: 34ch; color: var(--white); }
   .band .gold { color: var(--gold-on-navy); }
 
-  /* Product cards */
-  .cards { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 14px; }
-  .cards > li { display: flex; }
-  .card {
-    position: relative; flex: 1; display: flex; flex-direction: column;
-    background: var(--white); border: 1px solid var(--navy-15); border-radius: 8px;
-    padding: 26px 22px 22px;
-  }
-  .card.featured { border: 2px solid var(--terra); }
-  .badge {
-    position: absolute; top: -12px; left: 20px;
-    background: var(--terra); color: var(--white);
-    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 3px;
-  }
-  .card .kind { font-size: 0.8em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra); margin: 0 0 8px; }
-  .card p { margin: 0 0 14px; }
-  .facts { margin: 0 0 18px; padding: 14px 0 0; border-top: 1px solid var(--navy-15); display: grid; gap: 8px; }
-  .facts div { display: grid; grid-template-columns: 4.6em 1fr; gap: 10px; font-size: 0.92em; }
-  .facts dt { font-weight: 700; color: var(--navy); }
-  .facts dd { margin: 0; color: var(--muted); }
-  .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    min-height: 44px; padding: 10px 16px; border-radius: 4px;
-    font: inherit; font-size: 0.88em; font-weight: 700; text-decoration: none; cursor: pointer;
-  }
-  .btn-primary { background: var(--terra); color: var(--white); border: 1px solid var(--terra); }
-  .btn-primary:hover { background: var(--terra-deep); border-color: var(--terra-deep); color: var(--white); }
-  .btn-quiet { background: var(--white); color: var(--navy); border: 1px solid var(--control); }
-  .btn-quiet:hover { border-color: var(--navy); background: var(--navy-tint); color: var(--navy); }
-  .arrow { font-weight: 400; }
-
-  /* Text panels */
-  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px; margin-top: 28px; }
+  /* Panels */
+  section.block { padding: 48px 0; border-top: 1px solid var(--navy-15); }
+  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 14px; margin-top: 22px; }
   .panel { border: 1px solid var(--navy-15); border-radius: 8px; padding: 22px; background: var(--white); }
   .panel ul { margin: 0; padding-left: 1.2em; }
-  .panel li { margin: 0 0 10px; }
+  .panel li { margin: 0 0 8px; }
   .panel li:last-child { margin: 0; }
 
-  footer.site { background: var(--navy-deep); color: var(--white); padding: 40px 0; }
-  footer.site p { margin: 0 0 6px; color: var(--white); }
+  /* Citations */
+  details.cites { border: 1px solid var(--navy-15); border-radius: 8px; margin-top: 22px; }
+  details.cites summary { cursor: pointer; padding: 16px 20px; font-weight: 700; min-height: 44px; list-style-position: inside; }
+  details.cites[open] summary { border-bottom: 1px solid var(--navy-15); }
+  .cites-body { padding: 18px 20px 22px; }
+  .cites-body ol { margin: 0 0 18px; padding-left: 1.4em; }
+  .cites-body li { margin: 0 0 10px; overflow-wrap: anywhere; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 4px; font: inherit; font-size: 0.88em; font-weight: 700; cursor: pointer; background: var(--terra); color: var(--white); border: 1px solid var(--terra); }
+  .btn:hover { background: var(--terra-deep); border-color: var(--terra-deep); }
+
+  footer.site { background: var(--navy-deep); color: var(--white); padding: 36px 0; }
+  footer.site p { margin: 0 0 6px; }
   footer.site .small { color: #C9CEDA; font-size: 0.9em; }
   footer.site a { color: var(--white); }
   footer.site a:hover { color: var(--gold-on-navy); }
   footer.site :focus-visible { outline-color: var(--gold-on-navy); }
 
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { transition: none !important; animation: none !important; }
-  }
-  @media (prefers-contrast: more) {
-    :root { --navy-15: rgba(11,21,48,0.6); --control: #0B1530; --muted: #2E3547; }
-  }
-  @media (forced-colors: active) {
-    .btn, .toggle, nav.jump a, .card, .step, .panel, .summary, .badge { border: 1px solid CanvasText; }
-  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+  @media (prefers-contrast: more) { :root { --navy-15: rgba(11,21,48,0.6); --control: #0B1530; --muted: #2E3547; } }
+  @media (forced-colors: active) { .icon, .toggle, .btn, .panel, .tip { border: 1px solid CanvasText; } }
   @media print {
-    .toolbar, nav.jump, .skip-link, .btn-quiet { display: none !important; }
+    .toolbar, .skip-link, .btn, .howto { display: none !important; }
     body { font-size: 11pt; }
-    .band { background: none; color: var(--navy); padding: 12px 0; }
+    .tip { display: none; }
+    .tile-short { display: block; }
+    .band { background: none; padding: 10px 0; }
     .band p, .band .gold { color: var(--navy); }
-    footer.site { background: none; color: var(--navy); }
+    footer.site { background: none; }
     footer.site p, footer.site a, footer.site .small { color: var(--navy); }
-    .card, .step, .panel { break-inside: avoid; }
-    .btn-primary { background: none; color: var(--navy); border: none; padding: 0; min-height: 0; }
-    a.btn-primary::after { content: " " attr(href); font-weight: 400; font-size: 9pt; word-break: break-all; }
-    section.block { padding: 20px 0; }
+    details.cites .cites-body { display: block; }
   }
 </style>
 </head>
@@ -214,48 +175,13 @@
   <div class="wrap">
     <p class="eyebrow">Solano Community College · Department of Biology</p>
     <h1>Open learning tools for <span class="accent">health and technical</span> education</h1>
-    <p class="lede">I build browser-based labs, case simulations, and assessment tools that help community college students prepare for careers in health care and allied health.</p>
+    <p class="lede">I design browser-based simulations, study tools, and faculty tools that help community college students prepare for careers in health care.</p>
     <p class="who">Dr. Sharilyn Rennie, Professor of Biology</p>
-
-    <div class="summary" role="note" aria-labelledby="summary-h">
-      <h2 id="summary-h">This page at a glance</h2>
-      <ul>
-        <li>Fourteen tools I designed, all live and free to open.</li>
-        <li>Each tool shows one of the roles I bring to technician education, listed in the next section.</li>
-        <li>Every tool works in a web browser with no login, and student work stays on the student's own device.</li>
-      </ul>
-    </div>
-
-    <nav class="jump" aria-labelledby="jump-h">
-      <h2 id="jump-h">Go to a section</h2>
-      <ul>
-        <li><a href="#contribution">Areas of contribution</a></li>
-        <li><a href="#featured">Featured tools</a></li>
-        <li><a href="#additional">More tools</a></li>
-        <li><a href="#method">How the tools are built</a></li>
-        <li><a href="#background">Background and service</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
-
-  <section class="block" id="contribution" aria-labelledby="contribution-h">
-    <div class="wrap">
-      <p class="eyebrow">What I bring</p>
-      <h2 id="contribution-h">Areas of <span class="accent">contribution</span></h2>
-      <p class="section-intro">Each area below names the tools on this page that show it in practice.</p>
-      <ol class="steps">
-        <li class="step"><span class="num" aria-hidden="true">1</span><div><h3>Curriculum and instructional design</h3><p>I build complete courses from competency lists, with labs, cases, and study tools laid out week by week.<span class="see">See: BIO 005 course site, Pulmonary Function Lab</span></p></div></li>
-        <li class="step"><span class="num" aria-hidden="true">2</span><div><h3>Student learning and assessment</h3><p>My tools report results by competency, so students and instructors can see exactly what still needs work.<span class="see">See: Practice Exam and Gap Finder, Rx Cards, Lab Practical Builder</span></p></div></li>
-        <li class="step"><span class="num" aria-hidden="true">3</span><div><h3>Clinical and technical workforce perspective</h3><p>My military medical training and clinical background shape labs around real workplace tasks, such as running spirometry and setting a ventilator.<span class="see">See: Pulmonary Function Lab, Progressive Patient File</span></p></div></li>
-        <li class="step"><span class="num" aria-hidden="true">4</span><div><h3>Active learning and competency-based education</h3><p>I design Team-Based Learning sessions, retrieval practice, and classroom games around specific competencies.<span class="see">See: TBL Session Creator, Anatomy Taboo, Anatomy Loops</span></p></div></li>
-        <li class="step"><span class="num" aria-hidden="true">5</span><div><h3>AI-supported education</h3><p>I use AI to build adaptive practice that adjusts to each student, and to develop and revise tools quickly for my courses.<span class="see">See: Rx Cards, How the tools are built</span></p></div></li>
-        <li class="step"><span class="num" aria-hidden="true">6</span><div><h3>Faculty development, pilots, and dissemination</h3><p>I test each tool in my own courses first, then share it openly so other faculty and tutors can use it.<span class="see">See: Teaching Resources Toolkit, TBL Session Creator</span></p></div></li>
-      </ol>
-    </div>
-  </section>
+  <div id="groups"></div>
 
   <div class="band">
     <div class="wrap">
@@ -263,266 +189,43 @@
     </div>
   </div>
 
-  <section class="block" id="featured" aria-labelledby="featured-h">
+  <section class="block" id="about" aria-labelledby="about-h">
     <div class="wrap">
-      <p class="eyebrow">In use in Fall 2026</p>
-      <h2 id="featured-h">Featured <span class="accent">tools</span></h2>
-      <p class="section-intro">These five connect most directly to preparing students for health and technical careers.</p>
-      <ul class="cards">
-
-        <li><article class="card featured" aria-labelledby="p1-h">
-          <p class="kind">Virtual lab</p>
-          <h3 id="p1-h">Pulmonary Function and Mechanical Ventilation Lab</h3>
-          <p>Students measure lung volumes, run spirometry, and read pulmonary function results. Then they set a mechanical ventilator and submit a formal lab report as a PDF.</p>
-          <dl class="facts">
-            <div><dt>For</dt><dd>Physiology students, including those aiming for respiratory therapy</dd></div>
-            <div><dt>Course</dt><dd>BIO 005 Human Physiology</dd></div>
-            <div><dt>Shows</dt><dd>Curriculum design, workforce perspective</dd></div>
-          </dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/pulmonary-function-lab.html" target="_blank" rel="noopener">Open the lab<span class="sr-only">: Pulmonary Function and Mechanical Ventilation Lab (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p1" aria-label="Copy citation for Pulmonary Function and Mechanical Ventilation Lab">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card featured" aria-labelledby="p2-h">
-          <p class="kind">Case simulation</p>
-          <h3 id="p2-h">Progressive Patient File</h3>
-          <p>Each student follows one patient for all fifteen weeks of the course. New findings unlock each week, and the student decides the order of the workup. The finished file exports as a PDF.</p>
-          <dl class="facts">
-            <div><dt>For</dt><dd>Physiology and allied health students</dd></div>
-            <div><dt>Course</dt><dd>BIO 005 Human Physiology</dd></div>
-            <div><dt>Shows</dt><dd>Clinical reasoning, workforce perspective</dd></div>
-          </dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/BIO005-patient-file.html" target="_blank" rel="noopener">Open the case file<span class="sr-only">: Progressive Patient File (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p2" aria-label="Copy citation for Progressive Patient File">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card featured" aria-labelledby="p3-h">
-          <p class="kind">Assessment tool</p>
-          <h3 id="p3-h">Practice Exam and Gap Finder</h3>
-          <p>Students build practice exams from a bank of more than 5,000 questions. Results are sorted by competency, so a student knows which ideas to review rather than which questions to memorize.</p>
-          <dl class="facts">
-            <div><dt>For</dt><dd>Physiology students</dd></div>
-            <div><dt>Course</dt><dd>BIO 005 Human Physiology</dd></div>
-            <div><dt>Shows</dt><dd>Student learning and assessment</dd></div>
-          </dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/practice-exam.html" target="_blank" rel="noopener">Open the tool<span class="sr-only">: Practice Exam and Gap Finder (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p3" aria-label="Copy citation for Practice Exam and Gap Finder">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card featured" aria-labelledby="p4-h">
-          <p class="kind">Adaptive study tool</p>
-          <h3 id="p4-h">Rx Cards Spaced Recall</h3>
-          <p>A flashcard reviewer that schedules each card by how well the student knows it. Missed cards come back the next day, and harder levels open only after easier cards are answered correctly on separate days.</p>
-          <dl class="facts">
-            <div><dt>For</dt><dd>Physiology students</dd></div>
-            <div><dt>Course</dt><dd>BIO 005 Human Physiology</dd></div>
-            <div><dt>Shows</dt><dd>AI-supported education, assessment</dd></div>
-          </dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/rx-cards.html" target="_blank" rel="noopener">Open Rx Cards<span class="sr-only"> (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p4" aria-label="Copy citation for Rx Cards Spaced Recall">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card featured" aria-labelledby="p5-h">
-          <p class="kind">Faculty tool</p>
-          <h3 id="p5-h">TBL Session Creator</h3>
-          <p>Helps faculty plan a full Team-Based Learning session. It produces structured AI prompts built on the 4S application design (Significant, Same, Specific, Simultaneous).</p>
-          <dl class="facts">
-            <div><dt>For</dt><dd>Faculty and course builders</dd></div>
-            <div><dt>Host</dt><dd>MedMasters Collaborative</dd></div>
-            <div><dt>Shows</dt><dd>Faculty development, active learning</dd></div>
-          </dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://www.medmasterscollaborative.com/tbl-engine-generator" target="_blank" rel="noopener">Open the tool<span class="sr-only">: TBL Session Creator (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p5" aria-label="Copy citation for TBL Session Creator">Copy citation</button>
-          </div>
-        </article></li>
-
-      </ul>
-    </div>
-  </section>
-
-  <section class="block" id="additional" aria-labelledby="additional-h">
-    <div class="wrap">
-      <p class="eyebrow">Courses, labs, and study tools</p>
-      <h2 id="additional-h">More <span class="accent">tools</span></h2>
-      <p class="section-intro">Open course sites, labs, study tools, and faculty tools from my anatomy and physiology courses.</p>
-      <ul class="cards">
-
-        <li><article class="card" aria-labelledby="p6-h">
-          <p class="kind">Open course</p>
-          <h3 id="p6-h">BIO 005 Human Physiology Course Site</h3>
-          <p>A complete fifteen-week physiology course built as an open website and embedded in Canvas, with lectures, labs, study tools, and practice exams in one place.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Curriculum and instructional design</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/" target="_blank" rel="noopener">Open the course<span class="sr-only">: BIO 005 Human Physiology (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p6" aria-label="Copy citation for BIO 005 Human Physiology Course Site">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p7-h">
-          <p class="kind">Assessment tool</p>
-          <h3 id="p7-h">Lab Practical Builder and Station Card Generator</h3>
-          <p>Faculty plan a station-based lab practical, balance question types across body systems, and print the answer sheets, answer key, and station cards. A CSV export feeds the station card printer.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Hands-on skills assessment</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/Anatomy-Lab-Exam-Set-up-room-prep/bio004-practical-answer-sheet.html" target="_blank" rel="noopener">Open the builder<span class="sr-only">: Lab Practical Builder (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <a class="btn btn-quiet" href="https://drsrennie-stack.github.io/teaching-resources/station-card-generator.html" target="_blank" rel="noopener">Station cards<span class="sr-only">: Station Card Generator (opens in a new tab)</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p7" aria-label="Copy citation for Lab Practical Builder and Station Card Generator">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p8-h">
-          <p class="kind">Data lab</p>
-          <h3 id="p8-h">Reference Range Lab</h3>
-          <p>Students build a reference range from forty real glucose values. Then they look at why "normal" on a lab report is a statistical idea, and why some clinical cutoffs are tied to harm instead.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Clinical data skills</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/reference-range-lab.html" target="_blank" rel="noopener">Open the lab<span class="sr-only">: Reference Range Lab (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p8" aria-label="Copy citation for Reference Range Lab">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p9-h">
-          <p class="kind">Recall practice</p>
-          <h3 id="p9-h">Brain Dump Recall Tool</h3>
-          <p>Gives the student a random competency to explain or draw on paper from memory, then a checklist to grade their own work. Items a student keeps missing are tracked.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Student learning and assessment</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/human-physiology-Fa26/competency-brain-dump.html" target="_blank" rel="noopener">Open the tool<span class="sr-only">: Brain Dump Recall Tool (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p9" aria-label="Copy citation for Brain Dump Recall Tool">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p10-h">
-          <p class="kind">Lab practical practice</p>
-          <h3 id="p10-h">Anatomy Loops</h3>
-          <p>Timed practice stations that work like a real lab practical. Students pick a module, set the timer, shuffle the stations, and check each answer.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Hands-on skills practice</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/loops/" target="_blank" rel="noopener">Open Loops<span class="sr-only">: Anatomy Loops (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p10" aria-label="Copy citation for Anatomy Loops">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p11-h">
-          <p class="kind">Classroom game</p>
-          <h3 id="p11-h">Anatomy Taboo</h3>
-          <p>Teams describe an anatomy term without using the forbidden words. It has 244 cards across all five course modules, a practice mode for one team, and a deck builder for instructors.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Active learning</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/new-build-bio4-solano/anatomy-taboo.html" target="_blank" rel="noopener">Open the game<span class="sr-only">: Anatomy Taboo (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p11" aria-label="Copy citation for Anatomy Taboo">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p12-h">
-          <p class="kind">Classroom game</p>
-          <h3 id="p12-h">Memory Match</h3>
-          <p>A matching game that pairs histology slides and body region images with their terms. It can be played on screen, projected for the whole room, or printed as cards.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Active learning</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/new-build-bio4-solano/memory-match.html" target="_blank" rel="noopener">Open the game<span class="sr-only">: Memory Match (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p12" aria-label="Copy citation for Memory Match">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p13-h">
-          <p class="kind">Faculty hub</p>
-          <h3 id="p13-h">Teaching Resources Toolkit</h3>
-          <p>A hub of builder tools for faculty and tutors, grouped into exam builders, course management, Team-Based Learning, and lectures and slides.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Faculty development, dissemination</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/teaching-resources/" target="_blank" rel="noopener">Open the toolkit<span class="sr-only">: Teaching Resources Toolkit (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p13" aria-label="Copy citation for Teaching Resources Toolkit">Copy citation</button>
-          </div>
-        </article></li>
-
-        <li><article class="card" aria-labelledby="p14-h">
-          <p class="kind">Classroom tool</p>
-          <h3 id="p14-h">In-Lecture Retrieval Quiz</h3>
-          <p>Faculty project questions from a topic-tagged bank during lecture. Students answer on their own first, then teams answer the same set together.</p>
-          <dl class="facts"><div><dt>Shows</dt><dd>Active learning, Team-Based Learning</dd></div></dl>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://drsrennie-stack.github.io/teaching-resources/in-lecture-quiz.html" target="_blank" rel="noopener">Open the quiz<span class="sr-only">: In-Lecture Retrieval Quiz (opens in a new tab)</span> <span class="arrow" aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="btn btn-quiet" data-cite="p14" aria-label="Copy citation for In-Lecture Retrieval Quiz">Copy citation</button>
-          </div>
-        </article></li>
-
-      </ul>
-    </div>
-  </section>
-
-  <section class="block" id="method" aria-labelledby="method-h">
-    <div class="wrap">
-      <p class="eyebrow">Method</p>
-      <h2 id="method-h">How the tools are <span class="accent">built</span></h2>
+      <h2 id="about-h">About the <span class="accent">work</span></h2>
       <div class="panels">
         <div class="panel">
-          <h3>My role</h3>
+          <h3>How the tools are built</h3>
           <ul>
-            <li>I choose the learning problem, write the competencies, and design the steps a student moves through.</li>
-            <li>I write or review all of the science content and check every answer key before students see it.</li>
-            <li>I test each tool in my own courses and revise it based on how students actually use it.</li>
+            <li>I design each tool, write the competencies, and check all of the science and every answer key.</li>
+            <li>AI tools write and test the software from my specifications.</li>
+            <li>I pilot each tool in my own courses and revise it from what students do.</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>The role of AI</h3>
+          <h3>Teaching and service</h3>
           <ul>
-            <li>AI tools write and debug the software from my specifications.</li>
-            <li>AI also runs automated checks, such as simulating a full term of practice to confirm that review questions get harder as planned.</li>
-            <li>Each tool is a single web page, which keeps it free, easy to share, and easy for another instructor to adapt.</li>
+            <li>Full-time Professor of Biology, Solano Community College, teaching anatomy, physiology, and microbiology.</li>
+            <li>Curriculum Committee and Distance Education Committee, American River College.</li>
+            <li>Founder, MedMasters Collaborative, LLC, which trains faculty to design active learning with AI.</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>Access and privacy</h3>
-          <ul>
-            <li>Tools are designed to meet WCAG 2.2 AA, with keyboard access and screen reader labels.</li>
-            <li>There are no logins and no servers. Student progress is saved only in the student's own browser.</li>
-            <li>Tools embed in Canvas and other learning management systems.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="background" aria-labelledby="background-h">
-    <div class="wrap">
-      <p class="eyebrow">Experience</p>
-      <h2 id="background-h">Background and <span class="accent">service</span></h2>
-      <div class="panels">
-        <div class="panel">
-          <h3>Teaching</h3>
-          <ul>
-            <li>Full-time Professor, Department of Biology, Solano Community College, teaching anatomy, physiology, and microbiology.</li>
-            <li>Also teaches anatomy and physiology at American River College and Yuba College.</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Military and clinical</h3>
+          <h3>Military medical background</h3>
           <ul>
             <li>U.S. Air Force veteran, with service as an Aerospace Medical Technician and in medical training and instruction.</li>
           </ul>
         </div>
-        <div class="panel">
-          <h3>Service and faculty development</h3>
-          <ul>
-            <li>Member, Curriculum Committee and Distance Education Committee, American River College.</li>
-            <li>Founder and Learning Architect, MedMasters Collaborative, LLC, which trains faculty and course builders to design active learning materials with AI.</li>
-            <li>Developing a student AI Project Lab, a voluntary weekend workshop where STEM students work in teams to build a tool for a learning problem they face.</li>
-          </ul>
-        </div>
       </div>
+
+      <details class="cites" id="cites">
+        <summary>Citations for reviewers</summary>
+        <div class="cites-body">
+          <ol id="cite-list"></ol>
+          <button type="button" class="btn" id="copy-all">Copy all citations</button>
+        </div>
+      </details>
     </div>
   </section>
-
 </main>
 
 <footer class="site">
@@ -535,70 +238,190 @@
 <div class="sr-only" role="status" aria-live="polite" id="status"></div>
 
 <script>
-  (function () {
-    var root = document.documentElement;
-    var status = document.getElementById("status");
-    function announce(msg) { status.textContent = ""; setTimeout(function () { status.textContent = msg; }, 60); }
+/* ============================================================
+   TOOLS: one entry per tool. To add a tool, add an entry.
+   A tool with an empty url is not shown, so a tool that is
+   still being checked can sit here until it is ready.
+   group: clinical | study | faculty
+   icon:  blood | patient | target | cards | pencil | timer | clipboard | team | lungs
+   ============================================================ */
+var GROUPS = [
+  { id: "clinical", title: "Clinical simulations", tone: "tone-terra",
+    note: "Hands-on practice with the tasks health care workers do on the job." },
+  { id: "study", title: "Study and assessment tools", tone: "",
+    note: "Tools that show students and instructors exactly which competencies still need work." },
+  { id: "faculty", title: "Faculty tools", tone: "tone-deep",
+    note: "Tools that help other instructors plan and run active learning." }
+];
 
-    /* Reading options, remembered on this device only */
-    function setupToggle(id, cls, key, onMsg, offMsg) {
-      var btn = document.getElementById(id);
-      var on = false;
-      try { on = localStorage.getItem(key) === "1"; } catch (e) {}
-      function apply(state, speak) {
-        root.classList.toggle(cls, state);
-        btn.setAttribute("aria-pressed", state ? "true" : "false");
-        if (speak) announce(state ? onMsg : offMsg);
-      }
-      apply(on, false);
-      btn.addEventListener("click", function () {
-        on = !on; apply(on, true);
-        try { localStorage.setItem(key, on ? "1" : "0"); } catch (e) {}
-      });
-    }
-    setupToggle("t-text", "text-lg", "rennie-portfolio-text", "Larger text is on.", "Larger text is off.");
-    setupToggle("t-space", "space-lg", "rennie-portfolio-space", "More spacing is on.", "More spacing is off.");
+var TOOLS = [
+  { group: "clinical", icon: "blood", name: "Blood Gas Trainer", year: 2026,
+    url: "",
+    short: "Arterial blood gas interpretation practice.",
+    desc: "Description to come once the app is checked.",
+    who: "Nursing, respiratory therapy, and physiology students",
+    cite: "Blood gas trainer [Interactive web application]" },
 
-    /* Citations */
-    var AUTHOR = "Rennie, S.";
-    var CITES = {
-      p1: [2026, "Pulmonary function and mechanical ventilation lab [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/pulmonary-function-lab.html"],
-      p2: [2026, "Progressive patient file: A semester-long physiology case simulation [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/BIO005-patient-file.html"],
-      p3: [2026, "Practice exam and gap finder [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/practice-exam.html"],
-      p4: [2026, "Rx Cards: Spaced recall for human physiology [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/rx-cards.html"],
-      p5: [2026, "TBL session creator [Web application]. MedMasters Collaborative", "https://www.medmasterscollaborative.com/tbl-engine-generator"],
-      p6: [2026, "BIO 005 Human Physiology open course site [Open educational resource]", "https://drsrennie-stack.github.io/human-physiology-Fa26/"],
-      p7: [2026, "Lab practical builder and station card generator [Interactive web application]", "https://drsrennie-stack.github.io/Anatomy-Lab-Exam-Set-up-room-prep/bio004-practical-answer-sheet.html"],
-      p8: [2026, "Reference range lab [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/reference-range-lab.html"],
-      p9: [2026, "Brain dump recall tool [Interactive web application]", "https://drsrennie-stack.github.io/human-physiology-Fa26/competency-brain-dump.html"],
-      p10: [2026, "Anatomy Loops lab practical trainer [Interactive web application]", "https://drsrennie-stack.github.io/loops/"],
-      p11: [2026, "Anatomy Taboo [Interactive web application]", "https://drsrennie-stack.github.io/new-build-bio4-solano/anatomy-taboo.html"],
-      p12: [2026, "Memory Match: Histology and body regions [Interactive web application]", "https://drsrennie-stack.github.io/new-build-bio4-solano/memory-match.html"],
-      p13: [2026, "Teaching resources creator toolkit [Web application collection]", "https://drsrennie-stack.github.io/teaching-resources/"],
-      p14: [2026, "In-lecture retrieval quiz [Interactive web application]", "https://drsrennie-stack.github.io/teaching-resources/in-lecture-quiz.html"]
-    };
-    function fallbackCopy(text) {
-      var ta = document.createElement("textarea");
-      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "absolute"; ta.style.left = "-9999px";
-      document.body.appendChild(ta); ta.select();
-      var ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-      document.body.removeChild(ta); return ok;
-    }
-    document.querySelectorAll("[data-cite]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var c = CITES[btn.getAttribute("data-cite")];
-        var text = AUTHOR + " (" + c[0] + "). " + c[1] + ". " + c[2];
-        function done(ok) {
-          btn.textContent = ok ? "Citation copied" : "Copy did not work";
-          announce(ok ? "Citation copied. You can paste it now." : "Copy did not work. Open the tool and copy its address instead.");
-          setTimeout(function () { btn.textContent = "Copy citation"; }, 3000);
-        }
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
-        } else { done(fallbackCopy(text)); }
-      });
+  { group: "clinical", icon: "patient", name: "Simulated Patient", year: 2026,
+    url: "",
+    short: "A patient case students work through.",
+    desc: "Description to come once the app is checked.",
+    who: "Physiology and allied health students",
+    cite: "Simulated patient [Interactive web application]" },
+
+  { group: "study", icon: "target", name: "Practice Exam and Gap Finder", year: 2026,
+    url: "https://drsrennie-stack.github.io/human-physiology-Fa26/practice-exam.html",
+    short: "Practice exams with results by competency.",
+    desc: "Students build practice exams from a bank of more than 5,000 questions. Results are sorted by competency, so a student knows which ideas to review.",
+    who: "Physiology students",
+    cite: "Practice exam and gap finder [Interactive web application]" },
+
+  { group: "study", icon: "cards", name: "Rx Cards", year: 2026,
+    url: "https://drsrennie-stack.github.io/human-physiology-Fa26/rx-cards.html",
+    short: "Spaced recall that adapts to each student.",
+    desc: "Flashcards scheduled by how well the student knows each one. Missed cards come back the next day, and harder levels open as easier cards are mastered.",
+    who: "Physiology students",
+    cite: "Rx Cards: Spaced recall for human physiology [Interactive web application]" },
+
+  { group: "study", icon: "pencil", name: "Brain Dump", year: 2026,
+    url: "https://drsrennie-stack.github.io/human-physiology-Fa26/competency-brain-dump.html",
+    short: "Recall on paper, then check your own work.",
+    desc: "Students get a random competency to explain or draw from memory, then grade their work with a checklist. Items they keep missing are tracked.",
+    who: "Physiology students",
+    cite: "Brain dump recall tool [Interactive web application]" },
+
+  { group: "study", icon: "timer", name: "Anatomy Loops", year: 2026,
+    url: "https://drsrennie-stack.github.io/loops/",
+    short: "Timed lab practical practice stations.",
+    desc: "Timed stations that work like a real lab practical. Students choose a module, set the timer, shuffle the stations, and check each answer.",
+    who: "Anatomy students",
+    cite: "Anatomy Loops lab practical trainer [Interactive web application]" },
+
+  { group: "study", icon: "clipboard", name: "Lab Practical Builder", year: 2026,
+    url: "https://drsrennie-stack.github.io/Anatomy-Lab-Exam-Set-up-room-prep/bio004-practical-answer-sheet.html",
+    short: "Plan and print station-based lab exams.",
+    desc: "Faculty plan a station-based lab practical, balance question types across body systems, and print answer sheets, the answer key, and station cards.",
+    who: "Anatomy faculty",
+    cite: "Lab practical builder and station card generator [Interactive web application]" },
+
+  { group: "faculty", icon: "team", name: "TBL Session Creator", year: 2026,
+    url: "https://www.medmasterscollaborative.com/tbl-engine-generator",
+    short: "Plan a Team-Based Learning session.",
+    desc: "Helps faculty plan a full Team-Based Learning session, using structured AI prompts built on the 4S application design.",
+    who: "Faculty and course builders",
+    cite: "TBL session creator [Web application]. MedMasters Collaborative" }
+];
+
+/* Simple line icons, drawn for this page */
+var ICONS = {
+  blood: '<path d="M12 3c3.2 4.2 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.8-6.8 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+  patient: '<circle cx="12" cy="7" r="3.2"/><path d="M5.5 20c.6-3.6 3.2-5.6 6.5-5.6s5.9 2 6.5 5.6"/><path d="M15.5 17.5h3m-1.5-1.5v3"/>',
+  target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1"/>',
+  cards: '<rect x="4" y="7" width="12" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-2"/>',
+  pencil: '<path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/>',
+  timer: '<circle cx="12" cy="13" r="7.5"/><path d="M12 13V9M10 2.5h4M18.5 6l1.5-1.5"/>',
+  clipboard: '<rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 13.5h7M8.5 17h4"/>',
+  team: '<circle cx="8" cy="8.5" r="2.6"/><circle cx="16" cy="8.5" r="2.6"/><path d="M3 19c.5-3 2.5-4.6 5-4.6s4.5 1.6 5 4.6M11 19c.5-3 2.5-4.6 5-4.6s4.5 1.6 5 4.6"/>',
+  lungs: '<path d="M12 4v7M12 11c-1.5 1-3 1.5-3 1.5M12 11c1.5 1 3 1.5 3 1.5"/><path d="M9 7.5C6 8 4 12 4 16.5c0 2 1.5 3 3 2.5l2-1V7.5zM15 7.5c3 .5 5 4.5 5 9 0 2-1.5 3-3 2.5l-2-1V7.5z"/>'
+};
+
+(function () {
+  var root = document.documentElement;
+  var status = document.getElementById("status");
+  function announce(msg) { status.textContent = ""; setTimeout(function () { status.textContent = msg; }, 60); }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function svg(name) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (ICONS[name] || ICONS.target) + '</svg>'; }
+
+  var live = TOOLS.filter(function (t) { return t.url; });
+
+  /* Build the groups */
+  var host = document.getElementById("groups");
+  var html = "";
+  var first = true;
+  GROUPS.forEach(function (g) {
+    var items = live.filter(function (t) { return t.group === g.id; });
+    if (!items.length) return;
+    html += '<section class="group" aria-labelledby="g-' + g.id + '"><div class="wrap">' +
+      '<h2 id="g-' + g.id + '">' + esc(g.title) + '</h2>' +
+      '<p class="group-note">' + esc(g.note) + '</p>' +
+      (first ? '<p class="howto">Point to a tool, or move to it with the Tab key, to read about it. Select it to open it in a new tab.</p>' : '<div style="height:22px" aria-hidden="true"></div>') +
+      '<ul class="tiles ' + g.tone + '">';
+    items.forEach(function (t, i) {
+      var id = g.id + "-" + i;
+      html += '<li class="tile">' +
+        '<a class="tile-link" href="' + esc(t.url) + '" target="_blank" rel="noopener" aria-describedby="tip-' + id + '">' +
+          '<span class="icon">' + svg(t.icon) + '</span>' +
+          '<span class="tile-name">' + esc(t.name) + '<span class="sr-only"> (opens in a new tab)</span></span>' +
+          '<span class="tile-short" aria-hidden="true">' + esc(t.short) + '</span>' +
+        '</a>' +
+        '<div class="tip" role="tooltip" id="tip-' + id + '">' +
+          '<strong aria-hidden="true">' + esc(t.name) + '</strong>' +
+          '<p>' + esc(t.desc) + '</p>' +
+          '<p class="tip-meta">For: ' + esc(t.who) + '</p>' +
+        '</div>' +
+      '</li>';
     });
-  })();
+    html += '</ul></div></section>';
+    first = false;
+  });
+  host.innerHTML = html;
+
+  /* Keep the description box inside the screen */
+  function place(tile) {
+    var tip = tile.querySelector(".tip");
+    if (!tip) return;
+    tip.style.left = "50%"; tip.style.transform = "translateX(-50%)";
+    var r = tip.getBoundingClientRect(), vw = document.documentElement.clientWidth, pad = 12;
+    if (r.left < pad) { tip.style.transform = "translateX(calc(-50% + " + (pad - r.left) + "px))"; }
+    else if (r.right > vw - pad) { tip.style.transform = "translateX(calc(-50% - " + (r.right - vw + pad) + "px))"; }
+  }
+  document.querySelectorAll(".tile").forEach(function (tile) {
+    tile.addEventListener("mouseenter", function () { tile.classList.remove("dismissed"); place(tile); });
+    tile.addEventListener("focusin", function () { tile.classList.remove("dismissed"); place(tile); });
+    tile.addEventListener("mouseleave", function () { tile.classList.remove("dismissed"); });
+  });
+  /* Escape closes an open description box without moving focus */
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll(".tile").forEach(function (tile) {
+      if (tile.matches(":hover") || tile.contains(document.activeElement)) tile.classList.add("dismissed");
+    });
+  });
+
+  /* Citations */
+  var citeText = live.map(function (t) { return "Rennie, S. (" + t.year + "). " + t.cite + ". " + t.url; });
+  document.getElementById("cite-list").innerHTML = citeText.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("");
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.position = "absolute"; ta.style.left = "-9999px"; document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {} document.body.removeChild(ta); return ok;
+  }
+  var copyBtn = document.getElementById("copy-all");
+  copyBtn.addEventListener("click", function () {
+    var text = citeText.join("\n");
+    function done(ok) {
+      copyBtn.textContent = ok ? "Citations copied" : "Copy did not work";
+      announce(ok ? "All citations copied. You can paste them now." : "Copy did not work. Select the list and copy it by hand.");
+      setTimeout(function () { copyBtn.textContent = "Copy all citations"; }, 3000);
+    }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); }); }
+    else { done(fallbackCopy(text)); }
+  });
+
+  /* Reading options, remembered on this device only */
+  function setupToggle(id, cls, key, label) {
+    var btn = document.getElementById(id), on = false;
+    try { on = localStorage.getItem(key) === "1"; } catch (e) {}
+    function apply(state, speak) {
+      root.classList.toggle(cls, state); btn.setAttribute("aria-pressed", state ? "true" : "false");
+      if (speak) announce(label + (state ? " is on." : " is off."));
+    }
+    apply(on, false);
+    btn.addEventListener("click", function () { on = !on; apply(on, true); try { localStorage.setItem(key, on ? "1" : "0"); } catch (e) {} });
+  }
+  setupToggle("t-text", "text-lg", "rennie-portfolio-text", "Larger text");
+  setupToggle("t-space", "space-lg", "rennie-portfolio-space", "More spacing");
+})();
 </script>
 
 <script>
@@ -607,9 +430,7 @@
     var FRAME_ID = "rennie-portfolio";
     function sendHeight() {
       var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-      if (window.parent && window.parent !== window) {
-        window.parent.postMessage({ id: FRAME_ID, type: "setHeight", height: h }, "*");
-      }
+      if (window.parent && window.parent !== window) { window.parent.postMessage({ id: FRAME_ID, type: "setHeight", height: h }, "*"); }
     }
     if ("ResizeObserver" in window) { new ResizeObserver(sendHeight).observe(document.body); }
     window.addEventListener("load", sendHeight);
