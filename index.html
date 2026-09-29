@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: MedMasters look. White cards on off-white, heavy Open Sans headings, rust eyebrows,
+/* Layout: White cards on off-white, heavy Open Sans headings, rust eyebrows,
    navy bands for the "at a glance" chunks, hairline numbered rows. Compact tiles, no long cards. */
 :root{
   --navy:#0B1530; --navy-deep:#060C1E; --rust:#8B3A2E; --rust-deep:#6E2C22;
@@ -265,21 +265,21 @@ var P = [
 {
   id:"abg", n:"01", tag:"Clinical reasoning", title:"ABG Interpretation Trainer",
   eyebrow:"Clinical reasoning · Respiratory physiology",
-  lede:"A leveled trainer that teaches the reasoning process behind arterial blood gas interpretation.",
+  lede:"A leveled trainer that teaches the reasoning behind arterial blood gas interpretation.",
   blurb:"Six levels of arterial blood gas cases with step-by-step reasoning support that is gradually withdrawn as learners progress.",
-  meta:[["For","Physiology and health science students learning acid-base interpretation"],["Setting","Runs in the browser and embeds in Canvas or Kajabi"],["Cases","Generated from the Henderson-Hasselbalch equation, providing an unlimited set of practice cases"],["App",'<a href="https://drsrennie-stack.github.io/medmasters-respiratory/abg-interpretation-trainer.html" target="_blank" rel="noopener">Open the trainer<span class="sr-only"> (opens in a new tab)</span></a>']],
+  meta:[["For","Physiology and health science students learning acid-base interpretation"],["Setting","Runs in the browser and embeds in Canvas"],["Cases","Generated from the Henderson-Hasselbalch equation, providing an unlimited set of practice cases"],["App",'<a href="https://drsrennie-stack.github.io/medmasters-respiratory/abg-interpretation-trainer.html" target="_blank" rel="noopener">Open the trainer<span class="sr-only"> (opens in a new tab)</span></a>']],
   glance:[
-    ["The learning problem","Students can often list the steps of blood gas interpretation but struggle to apply them to an actual set of values. An assessment that scores only the final classification does not show where the reasoning broke down."],
-    ["The design","A six-level trainer that takes every case through the same seven-step sequence, provides feedback specific to each error, and gradually withdraws support as the learner improves."],
-    ["What changes for the learner","The goal is independent interpretation of a complete case. A level is complete only after three consecutive cases with every step answered correctly on the first attempt."]
+    ["The learning problem","Students can list the steps of blood gas interpretation but struggle to apply them to real values. Scoring only the final classification hides where the reasoning broke down."],
+    ["The design","Six levels, one seven-step sequence for every case, error-specific feedback, and support that is withdrawn as the learner improves."],
+    ["What changes for the learner","Learners work toward interpreting a full case independently. A level is complete after three consecutive cases answered correctly on the first attempt."]
   ],
   steps:[
-    ["Select a starting level","Six levels progress from uncompensated respiratory disorders to a mixed mastery set. Learners work in Guided or On my own mode."],
-    ["Review the values","Each case presents pH, PaCO₂, HCO₃⁻, base excess and PaO₂, as they would appear on a blood gas report."],
-    ["Work through each step","Every case follows the same sequence: pH, PaCO₂, HCO₃⁻, base excess, primary disorder, compensation and oxygenation."],
-    ["Classify each value","Values are placed in Acidic, Normal or Alkaline columns. The value in the same column as pH identifies the primary disorder."],
-    ["Receive targeted feedback","An incorrect first answer receives an explanation specific to that error. A second incorrect answer shows the correct answer and its rationale."],
-    ["Meet the mastery criterion","Three consecutive correct cases complete a level. Using a hint resets the count."]
+    ["Select a starting level","Six levels, from uncompensated respiratory disorders to a mixed mastery set, in Guided or On my own mode."],
+    ["Review the values","pH, PaCO₂, HCO₃⁻, base excess and PaO₂, as on a blood gas report."],
+    ["Work through each step","The same sequence every time, from pH through compensation and oxygenation."],
+    ["Classify each value","Each value goes in an Acidic, Normal or Alkaline column. The one that matches pH is the primary disorder."],
+    ["Receive targeted feedback","A first error gets a specific explanation. A second shows the answer and rationale."],
+    ["Meet the mastery criterion","Three consecutive correct cases complete a level. A hint resets the count."]
   ],
   shots:[
     ["abg-01.jpg","The level map states the mastery criterion and offers Guided and On my own modes.","Level selection screen with six level cards, two marked Completed and one Recommended, above a choice between Guided and On my own modes.","Sample data"],
@@ -289,10 +289,10 @@ var P = [
     ["abg-06.jpg","On my own mode removes step-by-step support and provides brief feedback for each section.","Independent mode showing primary disorder and compensation questions answered, with brief Not yet and Correct feedback.","Generated case"]
   ],
   arch:[
-    ["Explicit expert process","A consistent seven-step sequence makes the clinician's reasoning process visible and repeatable for novices."],
-    ["Scaffolding and fading","Tips appear automatically on Levels 1 and 2, are available on request from Level 3, and are removed in On my own mode."],
-    ["Explanatory feedback","Feedback refers to the case values and addresses common errors, such as mistaking the compensating value for the primary disorder."],
-    ["Progressive difficulty and interleaving","Each level introduces a more complex case type and mixes in earlier types, so learners must distinguish between similar patterns."],
+    ["Explicit expert process","One consistent sequence makes a clinician's reasoning visible and repeatable."],
+    ["Scaffolding and fading","Tips are automatic on Levels 1 and 2, on request from Level 3, and removed in On my own mode."],
+    ["Explanatory feedback","Feedback cites the case values and addresses common errors, such as mistaking compensation for the primary disorder."],
+    ["Progressive difficulty and interleaving","Each level adds a harder case type and mixes in earlier ones, so learners must tell similar patterns apart."],
     ["Mastery criterion","Advancement requires consistent accuracy across three consecutive cases."]
   ],
   tech:"The trainer generates cases in the browser, runs each one through a single classifier to produce the answer key, and filters out values that are not physiologically plausible. Progress is stored only in the learner's browser, and no personal data is collected.",
@@ -305,7 +305,7 @@ var P = [
   eyebrow:"Faculty design tool · Team-Based Learning",
   lede:"A faculty design tool that applies Team-Based Learning principles to session planning.",
   blurb:"A faculty tool that turns course competencies and TBL design decisions into a complete, structured session plan.",
-  meta:[["For","Faculty teaching BIO 004 anatomy and BIO 005 physiology"],["Setting","Runs in the browser and is offered through MedMasters Collaborative"],["Output","A structured session prompt and a pattern-checked answer key"],["App",'<a href="https://www.medmasterscollaborative.com/tbl-engine-generator" target="_blank" rel="noopener">Open the creator<span class="sr-only"> (opens in a new tab)</span></a>']],
+  meta:[["For","Faculty teaching BIO 004 anatomy and BIO 005 physiology"],["Setting","Runs in the browser"],["Output","A structured session prompt and a pattern-checked answer key"],["App",'<a href="https://drsrennie-stack.github.io/tbl-resources/tbl-session-creator.html" target="_blank" rel="noopener">Open the creator<span class="sr-only"> (opens in a new tab)</span></a>']],
   glance:[
     ["The learning problem","A well-designed TBL session requires readiness questions aligned to objectives, an application problem that produces meaningful team decisions, and a structured way to report those decisions. This design work is time-consuming, and the application exercise is often the most difficult part."],
     ["The design","A five-section planning form that begins with the course competencies and guides the instructor through readiness assurance, the application exercise and facilitation. The tool then produces a structured prompt for generating the full session."],
@@ -423,7 +423,7 @@ var P = [
   id:"mastery", n:"05", tag:"Metacognition", title:"Anatomy Mastery OS", flagship:true,
   eyebrow:"Metacognition · Competency-based learning",
   lede:"A competency-driven system that shows students where their confidence and their performance disagree.",
-  blurb:"Competency tracking that shows students where confidence and performance disagree, then brings those topics back on schedule.",
+  blurb:"A competency-driven learning system that reveals where confidence and performance disagree, directs targeted repair, and requires learners to prove the gap has closed.",
   meta:[["For","BIO 004 Anatomy and BIO 005 Physiology students"],["Scope","196 anatomy competencies, tracked at each DOK level"],["Build","New build, September 2026"],["Privacy","A random word ID instead of a name"]],
   glance:[
     ["The learning problem","Students often have difficulty judging what they do not know. A score reports overall performance but does not identify which competencies were missed with high confidence or what to practice next."],
@@ -528,12 +528,13 @@ function home(){
     '<p class="eyebrow">Learning Architect · Clinician-Educator</p>'+
     '<p class="who">Dr. Sharilyn Rennie</p>'+
     '<h1 id="h-home">I design learning systems that make <span class="hl">thinking visible</span>.</h1>'+
-    '<p class="lede">I design and build learning tools for anatomy, physiology and clinical education. Each one asks learners to retrieve what they know, judge their own confidence, and return to weak areas until they can demonstrate mastery. My work draws on clinical practice in Air Force critical care and many years of teaching anatomy and physiology at the community college level.</p>'+
+    '<p class="lede">I design and build learning systems for anatomy, physiology and clinical education. My work combines learning science, clinical expertise and technology to help learners retrieve what they know, judge their confidence, identify gaps and demonstrate mastery. I bring a clinical background that began in U.S. Air Force critical care and many years of teaching anatomy and physiology at the community college level.</p>'+
     '<div class="btns"><a class="btn" href="#work" data-anchor="work">See the work</a><a class="link-cta" href="#approach" data-anchor="approach">How I design</a></div>'+
   '</section>'+
   '<section class="band" id="approach" aria-labelledby="h-approach">'+
     '<p class="eyebrow">Design approach</p>'+
-    '<h2 id="h-approach">Five principles that run through my work</h2>'+
+    '<h2 id="h-approach">Principles that shape my learning systems</h2>'+
+    '<p style="color:var(--on-navy-muted);margin:0;max-width:70ch">Each project uses the principles that fit its purpose. Team-based and community projects add collaborative decision-making, peer learning and learner agency.</p>'+
     '<div class="band-grid">'+
       '<div><span class="num">01</span><h3>Retrieval</h3><p>Learners answer from memory before they see the answer key.</p></div>'+
       '<div><span class="num">02</span><h3>Confidence judgment</h3><p>Several tools ask learners to rate their confidence before the answer is shown.</p></div>'+
@@ -550,13 +551,12 @@ function home(){
   '<section class="section" id="about" aria-labelledby="h-about">'+
     '<div class="about">'+
       '<div><p class="eyebrow">About</p><h2 id="h-about">Background</h2>'+
-      '<p>I began my career in clinical care as a U.S. Air Force critical care and aerospace medicine technician. I now teach anatomy and physiology at several California community colleges and design learning tools for my students and for faculty colleagues.</p>'+
+      '<p>My clinical background spans U.S. Air Force critical care and aerospace medicine and a doctorate in naturopathic medicine. That experience shapes the clinical systems in this portfolio, including the ABG and cardiovascular nursing work. I now teach anatomy and physiology at several California community colleges and design learning systems for students and faculty colleagues.</p>'+
       '<p>My work combines clinical expertise, learning science and instructional design. I start with the learning architecture and then build working prototypes so the design can be used and refined in real courses.</p>'+
-      '<p><a href="https://www.medmasterscollaborative.com/" target="_blank" rel="noopener">MedMasters Collaborative<span class="sr-only"> (opens in a new tab)</span></a></p></div>'+
+      '</div>'+
       '<ul class="facts">'+
         '<li><b>Teaching</b><span>Anatomy and physiology faculty at Solano Community College, American River College and Yuba College</span></li>'+
-        '<li><b>Clinical</b><span>U.S. Air Force Critical Care Medical Technician and Aerospace Medicine Technician</span></li>'+
-        '<li><b>Founder</b><span>MedMasters Collaborative, LLC, which develops learning tools for health science education</span></li>'+
+        '<li><b>Clinical</b><span>Doctor of Naturopathic Medicine. U.S. Air Force Critical Care Medical Technician and Aerospace Medicine Technician.</span></li>'+
         '<li><b>Service</b><span>Curriculum Committee and Distance Education Committee, American River College</span></li>'+
       '</ul>'+
     '</div>'+
