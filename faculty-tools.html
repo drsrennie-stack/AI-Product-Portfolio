@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Student Tools</title>
-<meta name="description" content="Study tools for anatomy students, built by Dr. Sharilyn Rennie.">
+<title>Faculty Tools</title>
+<meta name="description" content="Teaching tools for anatomy and physiology faculty, built by Dr. Sharilyn Rennie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
@@ -228,10 +228,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <a class="skip" href="#main">Skip to main content</a>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home">Student <span>Tools</span></a>
+    <a class="brand" href="#home">Faculty <span>Tools</span></a>
     <nav class="nav" aria-label="Site">
       <a href="#tools" data-anchor="tools">Tools</a>
-      <a href="#how" data-anchor="how">How to use them</a>
+      <a href="#how" data-anchor="how">What they do</a>
       <a href="#about" data-anchor="about">About</a>
     </nav>
   </div>
@@ -248,8 +248,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>Dr. Sharilyn Rennie · Study tools for human anatomy</span>
-    <span>Pictures show sample data. No student information is shown.</span>
+    <span>Dr. Sharilyn Rennie · Teaching tools for anatomy and physiology</span>
+    <span>Screenshots show sample data. No student information is shown.</span>
   </div>
 </footer>
 
@@ -259,85 +259,83 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 var T = [
 {
-  id:"loops", tag:"BIO 004 Human Anatomy", title:"Anatomy Loops",
-  lede:"Lab practical practice. See the image, name the structures from memory, then check your answers.",
-  blurb:"Practice stations set up like the lab practical. Name each structure from memory, then check yourself.",
-  meta:[["Course","BIO 004 Human Anatomy"],["Size","39 loops and more than 2,000 stations across all five modules"],["Progress","Saved in your browser. No login needed."]],
-  link:"https://drsrennie-stack.github.io/loops/",
+  id:"tbl", tag:"Team-Based Learning", title:"TBL Session Creator",
+  lede:"Plan a complete Team-Based Learning session, starting from your course competencies.",
+  blurb:"Plan a complete TBL session from your course competencies, with a balanced RAT key and a 4S application exercise.",
+  meta:[["For","Faculty teaching BIO 004 anatomy or BIO 005 physiology (competency lists built in)"],["Works with","The AI platform you already use: ChatGPT, Claude or Gemini"],["Setup","None. Runs in the browser."]],
+  link:"https://drsrennie-stack.github.io/tbl-resources/tbl-session-creator.html",
   glance:[
-    ["What it is","Practice stations set up like the lab practical. You see a labeled image, type the names from memory, and then check your answers."],
-    ["Why it helps","Pulling a name out of memory builds the kind of memory the practical asks for. Rereading labeled pictures feels productive, but it does much less."],
-    ["What you get","A clear list of the structures you miss, including the ones you were sure about, so you know exactly what to study next."]
+    ["What it is","A planning form that walks you through readiness assurance, the application exercise and facilitation, then builds a detailed session prompt for your AI platform."],
+    ["Why it helps","It keeps the TBL essentials in every session: RAT items tied to your objectives, a 4S application problem, appeals and peer evaluation."],
+    ["What you get","A complete session prompt, plus a balanced answer key for the RAT and a parallel RAT."]
   ],
   steps:[
-    ["Choose what to practice","Pick a module and body system, how many stations, and whether you want a timer."],
-    ["Say how sure you are","Before you answer, choose how confident you feel. The answer boxes open after you pick."],
-    ["Answer from memory","Type the structure names, then press Check."],
-    ["Read the feedback","Each answer is marked correct, misspelled or incorrect, with the key."],
-    ["Fix the marking if needed","If a mark seems wrong, you can correct it before it is saved."],
-    ["Study your weak spots","Open My progress to see weak and flagged stations, then drill them or build a practice exam."]
+    ["Choose competencies","Pick from the built-in course lists. Each is tagged by DOK level and yield, and the ones you check become the objectives."],
+    ["Add materials","Optionally add a session title, prework and source text."],
+    ["Set up the RAT","Number of questions, DOK mix, IF-AT compatible item type, confidence-weighted scoring and a parallel RAT."],
+    ["Design the application","Format, complexity, class time, your experience with TBL, and whether to include peer evaluation."],
+    ["Build the prompt","The form checks for missing fields, then builds the prompt and a balanced answer key."],
+    ["Review before class","Paste the prompt into your AI platform and check every keyed answer before class."]
   ],
   shots:[
-    ["loops-03.jpg","Missed it while feeling sure? It becomes a red flag, so you know to study it first.","Station feedback showing the correct answers and a note that a confident miss becomes a red flag.","Sample answers","Confidence feedback"],
-    ["loops-02.jpg","Each answer gets its own mark. A spelling mistake is shown differently from a wrong structure.","Feedback with one answer correct and one marked as the right structure spelled wrong.","Sample answers","Answer feedback"],
-    ["loops-05.jpg","My progress shows how many stations are strong, developing, weak or flagged.","Progress summary with counts for strong, developing, weak, red flags and not started.","Sample data","My progress"],
-    ["loops-06.jpg","Your red flags in one list, with buttons to drill them or turn them into a practice exam.","A list of red-flag stations with buttons to drill them or make an exam.","Sample data","Red flags"],
-    ["loops-04.jpg","Loops are organized by module and body system.","Module tabs, body-system filters and loop cards with progress bars.","Sample data","All loops"]
+    ["tbl-01.jpg","Start from your course competencies. The ones you check become the session objectives.","Competency picker filtered to the cardiovascular module with six competencies checked.","Sample session","Competency picker"],
+    ["tbl-02.jpg","Readiness assurance settings, with item-writing guidelines stated above them.","Readiness assurance form with RAT settings.","Sample session","Readiness assurance"],
+    ["tbl-03.jpg","The application section follows the 4S framework and adjusts the facilitator guide if you are new to TBL.","Application exercise and facilitation settings.","Sample session","Application design"],
+    ["tbl-04.jpg","The finished prompt, with balanced answer keys for the RAT and parallel RAT.","The session prompt with answer keys and buttons to open ChatGPT, Claude or Gemini.","Sample session","Finished prompt"]
   ],
-  tips:["Spelling counts on the practical, so fix misspellings now instead of later.","Structures you miss while feeling sure are the most important ones to study. Start with your red flags.","Your progress is saved in the browser you use. Use the same device and browser each time so your history stays with you."]
+  tips:["Choose \"New to TBL\" under facilitator experience for a fuller facilitator guide.","Use the parallel RAT for retakes or review. It has its own answer key.","Always check the keyed answers before class. The tool reminds you, and it matters."]
 },
 {
-  id:"studywithme", tag:"BIO 004 Human Anatomy", title:"Study With Me",
-  lede:"Study sessions with your classmates, tutors and instructor, online or on campus.",
-  blurb:"A shared calendar of study sessions hosted by faculty, tutors and classmates, online or on campus.",
-  meta:[["Course","BIO 004 Human Anatomy, Solano Community College"],["Where","Online or on the Fairfield and Vacaville campuses"],["Credit","Hours can count toward Scholar Points. See your syllabus for the rules."]],
-  link:"https://drsrennie-stack.github.io/new-build-bio4-solano/study-session-signup.html",
-  extraLinks:[["Log my hours","https://drsrennie-stack.github.io/new-build-bio4-solano/study-with-me-hours.html"],["Host guide","https://drsrennie-stack.github.io/new-build-bio4-solano/study-with-me-host-guide.html"]],
+  id:"labpractical", tag:"Anatomy lab practicals", title:"Lab Practical Builder",
+  lede:"Plan a lab practical once, then print the student sheet, the answer key and the station cards.",
+  blurb:"Plan an anatomy lab practical once, then print the student sheet, answer key and station cards.",
+  meta:[["For","BIO 004 anatomy lab practicals, with Combined, Wet and Dry sheets"],["Saves","In your browser on this computer. Answer keys are never posted online."],["Setup","None. Runs in the browser."]],
+  link:"https://drsrennie-stack.github.io/Anatomy-Lab-Exam-Set-up-room-prep/Anatomy-Lab-Exam-Set-up-room-prep/bio004-practical-answer-sheet.html",
+  linkLabel:"Open the answer sheet planner",
+  extraLinks:[["Station card generator","https://drsrennie-stack.github.io/Anatomy-Lab-Exam-Set-up-room-prep/teaching-resources/station-card-generator.html"]],
   glance:[
-    ["What it is","A shared calendar of study sessions. Faculty, tutors and classmates host sessions online or on campus, and anyone in the class can join."],
-    ["Why it helps","Saying the anatomy out loud and quizzing each other is one of the best ways to find out what you really know."],
-    ["What you get","Study partners, a regular time to study, and hours that can count toward Scholar Points."]
+    ["What it is","An answer sheet planner for anatomy lab practicals, with two questions per station, plus a station card generator."],
+    ["Why it helps","Everything for practical day comes from one plan, so the student sheet, the key and the station cards always match."],
+    ["What you get","A one-page student sheet, a one-page answer key, and half-sheet station cards."]
   ],
   steps:[
-    ["Find a session","Use the week or list view. Each session shows who is hosting, what you'll do and how many seats are left."],
-    ["Sign up","Save your seat so the host knows who is coming."],
-    ["Join","Sessions open 15 minutes early. If you can't get in, use the button to message the host."],
-    ["Or host one","Offer to host. The host guide walks you through a simple four-part session."],
-    ["Log your hours","Record your hours on the hours page and turn in the PDF in Canvas each module."]
+    ["Set up the sheet","Choose Combined, Wet or Dry, and name the exam and unit."],
+    ["Plan each station","Choose the body system and the question, then type the answer."],
+    ["Print the sheets","Print the blank student sheet and the answer key. Each fits on one page."],
+    ["Make station cards","Export the CSV and load it into the station card generator. Cards print two per page."]
   ],
   shots:[
-    ["swm-01.jpg","The weekly calendar shows every session and who is hosting it.","Study With Me weekly calendar with sessions hosted by faculty, tutors and students.","Sample sessions","Weekly calendar"],
-    ["swm-04.jpg","Hosting is simple: pick one activity, warm up, do it, review the misses, wrap up.","Host guide with activity ideas and a four-step session plan.","No student data","Host guide"],
-    ["swm-03.jpg","Log your hours as you go and see your progress toward the goal.","Hours page with a weekly summary and totals.","Sample log","My hours"],
-    ["swm-05.jpg","Watch for special sessions, like exam strategy reviews.","Flyer for an exam strategy session.","No student data","Special sessions"]
+    ["lab-01.jpg","One set of planner controls prints the student sheet, the key and the station cards.","Lab Practical Answer Sheet planner controls with buttons to print the student sheet, answer key and station cards.","Sample exam","Planner"],
+    ["lab-02.jpg","Plan each station by system, question and answer.","Station planning rows with system, question and answer fields.","Sample exam","Station planning"],
+    ["lab-03.jpg","The blank student sheet prints on one page.","Printed student answer sheet with numbered lines for each station.","Sample exam","Student sheet"],
+    ["lab-04.jpg","Station cards show only the station number and the prompts.","Half-sheet station card for station 5 with questions 9 and 10.","Sample exam","Station card"]
   ],
-  tips:["A session only counts if it was posted on the calendar.","Hosting and attending count the same, so don't wait for someone else to start a group.","Log your hours right after each session so nothing gets lost."]
+  tips:["Combined, Wet and Dry sheets save separately. Plan on the same computer and browser you will print from.","Station cards leave the body system off, so the card doesn't give away the answer."]
 }
 ];
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
-var main=document.getElementById("main"), announcer=document.getElementById("announcer"), BASE="Student Tools · Dr. Sharilyn Rennie";
+var main=document.getElementById("main"), announcer=document.getElementById("announcer"), BASE="Faculty Tools · Dr. Sharilyn Rennie";
 
 function home(){
   var tiles=T.map(function(t){
     return '<li class="tile"><div class="thumb"><img src="img/'+t.shots[0][0]+'" alt="" loading="lazy"></div>'+
       '<div class="body"><p class="tag">'+esc(t.tag)+'</p><h3><a href="#'+t.id+'">'+esc(t.title)+'</a></h3>'+
-      '<p>'+esc(t.blurb)+'</p><span class="go" aria-hidden="true">'+(t.link?'How to use it':'Coming soon')+'</span></div></li>';
+      '<p>'+esc(t.blurb)+'</p><span class="go" aria-hidden="true">'+(t.link?'See how it works':'Link coming soon')+'</span></div></li>';
   }).join("");
   return '<div class="wrap">'+
   '<section class="hero" aria-labelledby="h-home">'+
-    '<p class="eyebrow">Student tools · Dr. Sharilyn Rennie</p>'+
-    '<h1 id="h-home">Study tools for <span class="hl">human anatomy</span>.</h1>'+
-    '<p class="lede">I built these tools for my anatomy students. Each one asks you to answer from memory first, check how sure you are, and then shows you what to review, so you can find and fix weak spots well before an exam.</p>'+
-    '<div class="btns"><a class="btn" href="#tools" data-anchor="tools">See the tools</a><a class="link-cta" href="#how" data-anchor="how">How to use them</a></div>'+
+    '<p class="eyebrow">Faculty tools · Dr. Sharilyn Rennie</p>'+
+    '<h1 id="h-home">Teaching tools for <span class="hl">anatomy and physiology</span> faculty.</h1>'+
+    '<p class="lede">I built these tools to handle the time-consuming parts of teaching anatomy and physiology: planning Team-Based Learning sessions and building lab practicals. Each one runs in the browser and leaves the teaching decisions with you.</p>'+
+    '<div class="btns"><a class="btn" href="#tools" data-anchor="tools">See the tools</a><a class="link-cta" href="#how" data-anchor="how">What they do</a></div>'+
   '</section>'+
   '<section class="band" id="how" aria-labelledby="h-how">'+
-    '<p class="eyebrow">How to use them</p><h2 id="h-how">Four habits that make studying work</h2>'+
+    '<p class="eyebrow">What they do</p><h2 id="h-how">Built around how these courses are taught</h2>'+
     '<div class="band-grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">'+
-      '<div><span class="num">01</span><h3>Answer before you look</h3><p>Try to remember first. Checking the key comes second.</p></div>'+
-      '<div><span class="num">02</span><h3>Be honest about how sure you are</h3><p>Your confidence rating is how the tools find your blind spots.</p></div>'+
-      '<div><span class="num">03</span><h3>Study your misses first</h3><p>Start with what you got wrong, especially what you were sure about.</p></div>'+
-      '<div><span class="num">04</span><h3>Come back later</h3><p>Short sessions spread over days work better than one long night.</p></div>'+
+      '<div><span class="num">01</span><h3>Start from competencies</h3><p>Sessions begin with your course outcomes and competency lists.</p></div>'+
+      '<div><span class="num">02</span><h3>Keep assessments aligned</h3><p>RAT items tied to objectives, balanced answer keys, and lab practical sheets that match their keys and station cards.</p></div>'+
+            '<div><span class="num">03</span><h3>Save prep time</h3><p>Sheets, keys and station cards come from one plan instead of several documents.</p></div>'+
     '</div>'+
   '</section>'+
   '<section class="section" id="tools" aria-labelledby="h-tools">'+
@@ -346,8 +344,8 @@ function home(){
   '</section>'+
   '<section class="section" id="about" aria-labelledby="h-about"><div class="about">'+
     '<div><p class="eyebrow">About</p><h2 id="h-about">Dr. Sharilyn Rennie</h2>'+
-    '<p>I teach anatomy and physiology at Solano Community College, American River College and Yuba College. My background includes critical care and aerospace medicine in the U.S. Air Force.</p>'+
-    '<p>I build these tools so you can practice the way you will be tested and see exactly where to focus. If something isn\'t working the way you expect, let me know in class or through Canvas.</p></div>'+
+    '<p>I teach anatomy and physiology at Solano Community College, American River College and Yuba College, and serve on the Curriculum and Distance Education Committees at American River College.</p>'+
+    '<p>I built these tools for my own courses and share them with colleagues. Each one is a working prototype that I continue to refine as I use it with students.</p></div>'+
   '</div></section>'+
   '</div>';
 }
@@ -360,18 +358,18 @@ function tool(t,i){
   var steps=t.steps.map(function(s,k){return '<li><span class="n" aria-hidden="true">'+String(k+1).padStart(2,"0")+'</span><div><h3><span class="sr-only">Step '+(k+1)+': </span>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></div></li>';}).join("");
   var thumbs=t.shots.map(function(s,k){return '<li><button type="button" data-shot="'+k+'" aria-pressed="'+(k===0)+'" aria-label="Show screen '+(k+1)+' of '+t.shots.length+': '+esc(s[4])+'"><img src="img/'+s[0]+'" alt="" loading="lazy"><span>'+esc(s[4])+'</span></button></li>';}).join("");
   var tips=t.tips.map(function(x){return '<li>'+esc(x)+'</li>';}).join("");
-  var open=t.link?'<a class="btn open-btn" href="'+t.link+'" target="_blank" rel="noopener">Open '+esc(t.title)+'<span class="sr-only"> (opens in a new tab)</span></a>':'<span class="soon open-btn">Link coming soon</span>';
+  var open=t.link?'<a class="btn open-btn" href="'+t.link+'" target="_blank" rel="noopener">'+(t.linkLabel?esc(t.linkLabel):'Open '+esc(t.title))+'<span class="sr-only"> (opens in a new tab)</span></a>':'<span class="soon open-btn">Link coming soon</span>';
   return '<div class="wrap">'+
   '<div class="p-hero"><div><a class="crumb" href="#tools" data-anchor="tools">All tools</a>'+
     '<p class="eyebrow">'+esc(t.tag)+'</p><h1 id="page-h1" tabindex="-1">'+esc(t.title)+'</h1><p class="lede">'+esc(t.lede)+'</p>'+open+'</div>'+
     '<ul class="meta" aria-label="Tool details">'+meta+'</ul></div>'+
   '<section class="band" aria-label="At a glance"><div class="glance">'+glance+'</div></section>'+
-  '<section class="section" aria-labelledby="h-steps"><p class="eyebrow">How to use it</p><h2 id="h-steps">Step by step</h2><ol class="steps">'+steps+'</ol></section>'+
+  '<section class="section" aria-labelledby="h-steps"><p class="eyebrow">How it works</p><h2 id="h-steps">Step by step</h2><ol class="steps">'+steps+'</ol></section>'+
   '<section class="section" aria-labelledby="h-screens"><p class="eyebrow">Screens</p><h2 id="h-screens">What you will see</h2>'+
     '<div class="viewer"><figure class="stage" style="margin:0"><div class="appbar"><span>'+esc(t.title)+'</span><span class="scr" id="stageScr">'+esc(t.shots[0][4])+'</span></div><button type="button" class="zoom" aria-label="Enlarge screenshot"><img id="stageImg" src="img/'+t.shots[0][0]+'" alt="'+esc(t.shots[0][2])+'"></button>'+
     '<figcaption aria-live="polite"><span class="cnt" id="stageCnt">Screen 1 of '+t.shots.length+' · '+esc(t.shots[0][3])+'</span><span id="stageCap">'+esc(t.shots[0][1])+'</span></figcaption></figure>'+
     '<ul class="thumbs" aria-label="Choose a screen">'+thumbs+'</ul></div></section>'+
-  '<section class="section" aria-labelledby="h-tips"><p class="eyebrow">Tips</p><h2 id="h-tips">Getting the most out of it</h2><ul class="tips">'+tips+'</ul></section>'+
+  '<section class="section" aria-labelledby="h-tips"><p class="eyebrow">Tips</p><h2 id="h-tips">Tips for using it</h2><ul class="tips">'+tips+'</ul></section>'+
   '<nav class="section pager" aria-label="More tools"><a href="#'+prev.id+'"><small>Previous</small><strong>'+esc(prev.title)+'</strong></a><a class="next" href="#'+next.id+'"><small>Next</small><strong>'+esc(next.title)+'</strong></a></nav>'+
   '</div>';
 }
