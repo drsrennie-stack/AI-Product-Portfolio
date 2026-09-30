@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simulated Patients</title>
+<meta name="description" content="Simulated patient cases for physiology and nursing education by Dr. Sharilyn Rennie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: White cards on off-white, heavy Open Sans headings, rust eyebrows,
+   navy bands for the "at a glance" chunks, hairline numbered rows. Compact tiles, no long cards. */
+:root{
+  --navy:#0B1530; --navy-deep:#060C1E; --rust:#8B3A2E; --rust-deep:#6E2C22;
+  --gold:#C9A14A; --gold-on-navy:#DCB45C; --ink:#0B1530; --muted:#464D60;
+  --line:rgba(11,21,48,.14); --page:#FAFAF9; --card:#FFFFFF; --navy-tint:#EEF0F4;
+  --on-navy:#FFFFFF; --on-navy-muted:#C4CAD6;
+  --display:"Open Sans","Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --shadow:0 1px 3px rgba(0,0,0,.08); --shadow-hover:0 8px 16px rgba(0,0,0,.10);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+em,i,cite,dfn,var,address{font-style:normal}
+img{max-width:100%;display:block}
+a{color:var(--navy);text-underline-offset:3px}
+a:hover{color:var(--rust)}
+:focus-visible{outline:3px solid var(--rust);outline-offset:3px;border-radius:4px}
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+.skip{position:absolute;left:16px;top:-100px;z-index:60;background:var(--navy);color:#fff;padding:10px 16px;border-radius:4px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px;color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media (min-width:760px){.wrap{padding-inline:40px}}
+
+/* Top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(250,250,249,.96);border-bottom:1px solid var(--line);backdrop-filter:saturate(1.2) blur(6px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:12px}
+.brand{font-family:var(--display);font-weight:800;font-size:18px;text-decoration:none;color:var(--navy);letter-spacing:-.01em}
+.brand span{color:var(--rust)}
+.nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav a{font-size:14px;font-weight:600;text-decoration:none;padding:10px 12px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:var(--navy-tint);color:var(--navy)}
+.notes-toggle{font:inherit;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rust);color:var(--rust);background:var(--card);border-radius:3px;padding:8px 12px;min-height:44px;cursor:pointer}
+.notes-toggle[aria-pressed="true"]{background:var(--rust);color:#fff}
+
+/* Type */
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin:0 0 12px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance}
+h1{font-weight:800;font-size:clamp(32px,4.6vw,48px);line-height:1.1;letter-spacing:-.015em;margin:0 0 16px}
+h2{font-weight:800;font-size:clamp(24px,2.8vw,30px);line-height:1.18;letter-spacing:-.01em;margin:0 0 8px}
+h3{font-family:var(--body);font-weight:700;font-size:17px;line-height:1.3;margin:0 0 4px}
+.hl{color:var(--rust)}
+.lede{font-size:19px;line-height:1.55;max-width:62ch;margin:0 0 22px}
+p{margin:0 0 12px;max-width:68ch}
+.muted{color:var(--muted)}
+.small{font-size:14.5px}
+
+/* Buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;background:var(--rust);color:#fff;border-radius:3px;text-decoration:none;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.btn:hover{background:var(--rust-deep);color:#fff}
+.link-cta{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--navy);padding-block:6px}
+
+/* Sections */
+.section{padding-block:56px;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.sec-head p{margin:0}
+
+/* Hero */
+.hero{padding-block:56px 40px}
+.hero .who{font-weight:700;color:var(--muted);margin:0 0 6px;font-size:15px}
+
+/* Navy band */
+.band{background:var(--navy);color:var(--on-navy);border-radius:6px;padding:32px 28px}
+.band .eyebrow{color:var(--gold-on-navy)}
+.band h2{color:#fff}
+.band-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:18px}
+@media (min-width:1040px){.band-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.band-grid > div{min-width:0;padding-left:16px;border-left:1px solid rgba(255,255,255,.18)}
+.band-grid .num{font-family:var(--display);font-weight:800;font-size:15px;color:var(--gold-on-navy);display:block;margin-bottom:4px}
+.band-grid h3{color:#fff;font-size:16px}
+.band-grid p{color:var(--on-navy-muted);font-size:14.5px;margin:0;line-height:1.5}
+
+/* Work tiles */
+.tiles{list-style:none;margin:0;padding:0;display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);transition:transform 200ms ease,box-shadow 200ms ease;position:relative;display:flex;flex-direction:column;min-width:0}
+.tile:hover,.tile:focus-within{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.tile .thumb{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);border-radius:6px 6px 0 0;background:#fff}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.tile .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tile .tag{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin:0}
+.tile h3{font-family:var(--display);font-weight:800;font-size:19px;margin:0}
+.tile h3 a{text-decoration:none;color:var(--navy)}
+.tile h3 a::after{content:"";position:absolute;inset:0;border-radius:6px}
+.tile h3 a:focus-visible{outline:none}
+.tile:focus-within{outline:3px solid var(--rust);outline-offset:3px}
+.tile p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.5}
+.tile .go{margin-top:auto;padding-top:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.tile .status{position:absolute;top:10px;right:10px;background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
+
+/* About */
+.about{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.facts li{padding:12px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:130px 1fr;gap:12px;font-size:15px}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+.facts b{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);padding-top:3px}
+
+/* Project page */
+.crumb{display:inline-flex;align-items:center;min-height:44px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:12px}
+.p-hero{padding-block:36px 28px;display:grid;gap:28px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
+@media (max-width:900px){.p-hero{grid-template-columns:1fr}}
+.meta{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow)}
+.meta li{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;display:grid;grid-template-columns:96px 1fr;gap:10px}
+.meta li:first-child{border-top:0}
+.meta b{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);padding-top:3px}
+
+.glance{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:6px}
+.glance > div{min-width:0;padding-left:16px;border-left:1px solid rgba(255,255,255,.18)}
+.glance h3{color:var(--gold-on-navy);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.glance p{color:#fff;font-size:15.5px;line-height:1.55;margin:0}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));column-gap:40px}
+.steps li{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.steps .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--rust)}
+.steps p{margin:0;font-size:15px;color:var(--muted);line-height:1.5}
+
+/* Screens viewer */
+.viewer{display:grid;gap:18px;grid-template-columns:minmax(0,1fr) 240px;align-items:start}
+@media (max-width:860px){.viewer{grid-template-columns:1fr}}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.appbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:9px 16px;font-size:13px;font-weight:700;letter-spacing:.02em}
+.appbar .scr{color:var(--gold-on-navy);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right}
+.stage button.zoom{all:unset;display:block;width:100%;cursor:zoom-in;background:#fff}
+.stage button.zoom:focus-visible{outline:3px solid var(--rust);outline-offset:-3px}
+.stage img{width:100%;height:auto;max-height:520px;object-fit:contain;object-position:top center;margin:0 auto}
+.stage figcaption{padding:14px 18px;border-top:1px solid var(--line);font-size:15px;line-height:1.5}
+.stage figcaption .cnt{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:3px}
+.thumbs{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
+@media (max-width:860px){.thumbs{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}}
+.thumbs button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center;width:100%;padding:8px;border:1px solid var(--line);border-radius:4px;background:var(--card);cursor:pointer;font-size:13px;line-height:1.35;min-height:44px}
+@media (max-width:860px){.thumbs button{grid-template-columns:1fr}.thumbs button span{display:none}}
+.thumbs button img{width:72px;height:46px;object-fit:cover;object-position:top left;border:1px solid var(--line);border-radius:2px}
+@media (max-width:860px){.thumbs button img{width:100%;height:52px}}
+.thumbs button:hover{border-color:var(--navy)}
+.thumbs button[aria-pressed="true"]{border:2px solid var(--navy);padding:7px}
+.thumbs button:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.data-note{font-size:13.5px;color:var(--muted);margin:12px 0 0}
+
+/* Architecture rows */
+.arch{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));column-gap:40px}
+.arch div{padding:14px 0;border-top:1px solid var(--line)}
+.arch h3{font-size:16px}
+.arch p{font-size:15px;color:var(--muted);margin:0;line-height:1.5}
+.aside-note{margin-top:18px;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 18px;box-shadow:var(--shadow)}
+
+.fourS{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:18px}
+.fourS > div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.fourS .s{font-family:var(--display);font-weight:800;font-size:28px;color:var(--rust);line-height:1}
+.fourS h3{margin-top:8px}
+.fourS p{font-size:14.5px;color:var(--muted);margin:0}
+
+.chain{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.chain li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.chain .q{font-family:var(--display);font-weight:800;font-size:17px;color:var(--navy);display:block;margin-bottom:6px}
+.chain .n{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:6px}
+.chain p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.5}
+
+/* Evidence */
+.ev{display:grid;gap:18px;align-items:start;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.ev > div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 20px;box-shadow:var(--shadow);min-width:0}
+.ev h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.ev p,.ev li{font-size:14.5px;line-height:1.5}
+.ev ul{margin:0;padding-left:18px;display:grid;gap:10px}
+.ev .ref{color:var(--muted);display:block;font-size:13px;margin-top:2px}
+
+.two{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{border:1px solid var(--navy);border-radius:3px;padding:6px 10px;font-size:13.5px;font-weight:600}
+.details{margin:0;padding-left:18px;display:grid;gap:8px;font-size:15px}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pager a{display:block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px;text-decoration:none;box-shadow:var(--shadow);transition:transform 200ms ease,box-shadow 200ms ease}
+.pager a:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.pager small{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust)}
+.pager strong{font-family:var(--display);font-weight:800;font-size:17px}
+.pager .next{text-align:right}
+
+/* Review notes (draft only) */
+.review{background:var(--card);border:2px dashed var(--rust);border-radius:6px;padding:18px 20px}
+.review .eyebrow{margin-bottom:6px}
+.review h2{font-size:20px}
+.review ul{margin:8px 0 0;padding-left:18px;display:grid;gap:8px;font-size:14.5px;line-height:1.5}
+.review b{color:var(--rust-deep)}
+body.hide-notes .review,body.hide-notes .review-only{display:none!important}
+
+/* Dialog */
+dialog.lb{border:0;padding:0;max-width:min(1400px,96vw);max-height:94vh;background:#fff;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog.lb::backdrop{background:rgba(6,12,30,.72)}
+dialog.lb img{max-height:84vh;width:auto;margin:0 auto}
+dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px}
+dialog.lb button{font:inherit;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:0;border-radius:3px;min-height:44px;padding:0 16px;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.tile:hover,.pager a:hover{transform:none}}
+@media (max-width:520px){.facts li,.meta li{grid-template-columns:1fr;gap:2px}.steps li{grid-template-columns:48px 1fr}.steps .n{font-size:28px}.pager{grid-template-columns:1fr}.pager .next{text-align:left}.band{padding:24px 18px}}
+</style>
+<style>
+.tiles.duo{grid-template-columns:repeat(auto-fill,minmax(420px,1fr))}
+@media (max-width:520px){.tiles.duo{grid-template-columns:1fr}}
+.open-btn{margin-top:18px}
+.soon{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border:1px dashed var(--muted);color:var(--muted);border-radius:3px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.tips{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tips li{padding:12px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.tips li:last-child{border-bottom:1px solid var(--line)}
+.linklist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.meta .linklist li{display:block;padding:0;border:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home">Simulated <span>Patients</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="#tools" data-anchor="tools">Cases</a>
+      <a href="#how" data-anchor="how">Design</a>
+      <a href="#about" data-anchor="about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<p class="sr-only" aria-live="polite" id="announcer"></p>
+
+<dialog class="lb" id="lightbox" aria-labelledby="lbTitle">
+  <div class="bar"><span id="lbTitle">Screenshot</span><button type="button" id="lbClose">Close</button></div>
+  <img id="lbImg" src="" alt="">
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>Dr. Sharilyn Rennie · Simulated patients for physiology and nursing education</span>
+    <span>Screenshots show sample sessions with fictional patients. No student information is shown.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+var T = [
+{
+  id:"maya", tag:"Physiology · Four-day case", title:"Maya Chen, Week 1",
+  lede:"A week-long case that follows a young adult with progressive fatigue through four days of clinical data, taught alongside Team-Based Learning.",
+  blurb:"A four-day physiology case in which students gather a history, order tests from a limited budget, and answer a mechanism question before each result is released.",
+  meta:[["Course","Cell physiology and cardiovascular foundations"],["Format","Four-day case with data released at each class session"],["Scoring","85 points for diagnosis, data efficiency, interview quality, question performance and completion"]],
+  glance:[
+    ["Clinical scenario","Maya Chen, 28, presents with six weeks of progressive fatigue, pallor and shortness of breath on exertion."],
+    ["Design","Students interview the patient, review bedside findings at no cost, and order laboratory tests from a 200-credit bank. Each result is released only after a physiology question is answered correctly."],
+    ["What students practice","Taking a focused history, selecting tests efficiently, connecting laboratory findings to physiological mechanisms, and committing to a diagnosis before the class discussion."]
+  ],
+  steps:[
+    ["Review the case plan","Before the case begins, students see the four-day structure, the credit bank and the scoring criteria."],
+    ["Interview the patient","Students have ten questions to explore symptoms, diet, menstrual history, medications and family history."],
+    ["Collect data","Bedside findings are free. Laboratory tests are ordered from the credit bank."],
+    ["Answer the physiology question","Each result is released after a correct answer at DOK 2 or 3. An incorrect answer costs credits."],
+    ["Follow the case across the week","The instructor releases each day's new data with a code given in class."],
+    ["Submit and debrief","Students submit a diagnosis and rationale privately, then receive the explanation and their score after the class discussion."]
+  ],
+  shots:[
+    ["sim-maya-01.jpg","The case plan and scoring criteria are shown before the case begins.","Week 1 overview listing seven steps and an 85-point scoring breakdown.","Sample session","Case plan"],
+    ["sim-maya-02.jpg","The workspace shows the credit bank, the day-by-day structure, bedside data and results to date.","Case workspace with credits remaining, day tabs, bedside data and vital signs.","Sample session","Workspace"],
+    ["sim-maya-03.jpg","Before a result is released, the student answers a question about the underlying physiology.","A physiology question about how iron is coordinated in the heme group, with four answer choices.","Sample session","Physiology question"],
+    ["sim-maya-05.jpg","After the debrief, students see a score for each part of the case.","Score summary and breakdown for the week.","Sample session","Score"]
+  ],
+  arch:[
+    ["Reasoning before results","Each test result depends on explaining the physiology behind it."],
+    ["Cost of information","A limited credit bank asks students to choose tests deliberately."],
+    ["Disclosure paced to the course","New data arrive with each class session, and the diagnosis is discussed in class before it is revealed."],
+    ["Scaffolding","Normal ranges are provided in this first week only, as a temporary support."],
+    ["Explicit criteria","The scoring criteria are visible from the first screen."]
+  ],
+  tech:"This case does not use artificial intelligence. The patient's responses are written in advance and matched to the student's questions."
+},
+{
+  id:"marsh", tag:"Physiology · Clinical reasoning", title:"Eleanor Marsh, Case 001",
+  lede:"A clinical reasoning case in which students investigate eight months of progressive fatigue and muscle weakness and justify each diagnostic decision.",
+  blurb:"A clinical reasoning case in which every test requires a physiology answer and a written justification, with credits returned for strong reasoning.",
+  meta:[["Course","BIO 431 Human Anatomy and Physiology"],["Format","One case with 18 orderable tests across eight categories"],["AI use","Simulated patient, evaluation of written reasoning, and a restricted reference assistant"]],
+  glance:[
+    ["Clinical scenario","Eleanor Marsh, 34, reports eight months of progressive fatigue and muscle weakness."],
+    ["Design","Each test is released through two steps: a physiology question, then a written justification for ordering the test. Stronger justifications earn back more credits."],
+    ["What students practice","Forming and testing hypotheses, explaining why incorrect options are wrong, and interpreting results in the context of the patient."]
+  ],
+  steps:[
+    ["Meet the patient","Students begin with only the patient's name, age and chief complaint."],
+    ["Interview","Students have ten questions for a simulated patient who responds in character."],
+    ["Examine and order tests","Bedside examinations are free. Diagnostic tests are ordered from a 200-credit bank."],
+    ["Answer the physiology question","Students choose multiple choice, short answer or a paid bypass. A multiple-choice answer also requires an explanation of why each other option is incorrect."],
+    ["Justify the test","Students explain why they ordered the test and what they expect to find."],
+    ["Submit a diagnosis","The diagnosis, scores and feedback are released after the class discussion."]
+  ],
+  shots:[
+    ["sim-marsh-01.jpg","The case opens with only the patient's name, age and chief complaint.","Patient card for Eleanor Marsh, 34, with the chief complaint of progressive fatigue and muscle weakness for eight months.","Sample session","Patient"],
+    ["sim-marsh-02.jpg","The workspace combines the credit bank, bedside examinations, test menu and results.","Case workspace with credits remaining, examinations, test menu and results.","Sample session","Workspace"],
+    ["sim-marsh-03.jpg","Students choose how to answer the physiology question, and multiple-choice answers require reasons for rejecting each alternative.","A physiology question about elevated resting lactate with four answer choices.","Sample session","Physiology question"],
+    ["sim-marsh-05.jpg","A reference assistant answers only definitions, normal ranges and basic concepts, and each question has a cost.","Reference assistant panel listing what it will and will not answer.","Sample session","Reference assistant"]
+  ],
+  arch:[
+    ["Reasoning before results","Every test result depends on a correct physiology answer."],
+    ["Justification","Students state why each test is needed, which makes their diagnostic reasoning explicit."],
+    ["Reasoning checkpoints","Key results prompt an interpretation question that earns bonus credits."],
+    ["Cost of information","A limited credit bank rewards deliberate test selection."],
+    ["Limited support","The reference assistant defines terms and normal ranges but will not interpret results or suggest a diagnosis."]
+  ],
+  tech:"The simulated patient, the evaluation of written answers and the reference assistant use Claude, a large language model. Its instructions contain the case details and limit what it may reveal to students."
+},
+{
+  id:"headtotoe", tag:"Nursing · Physical assessment", title:"Head-to-Toe Assessment Tutor",
+  lede:"A practice environment for the fundamentals head-to-toe assessment, with three levels of support leading up to the graded skills evaluation.",
+  blurb:"Practice for the fundamentals head-to-toe assessment, from coached practice to a timed evaluation scored against the course rubric.",
+  meta:[["Course","Fundamentals of nursing"],["Patients","Three inpatients, each with ten clinical datasets"],["Modes","Coaching, Practice and Assessment"]],
+  glance:[
+    ["Clinical scenario","Students assess one of three hospitalized adults: a patient with heart failure, a patient with chronic obstructive pulmonary disease, or a patient recovering from laparoscopic cholecystectomy."],
+    ["Design","Support decreases across three modes. Assessment mode adds a 15-minute limit and applies the full rubric, including automatic failure for missed hand hygiene or patient identification."],
+    ["What students practice","A systematic assessment, reporting vital signs with their normal ranges, assessing assigned cranial nerves, and writing a nursing note."]
+  ],
+  steps:[
+    ["Choose a mode","Coaching offers hints and guided feedback, Practice removes the hints, and Assessment matches the graded evaluation."],
+    ["Choose a patient","A clinical dataset is assigned at random, along with three cranial nerves to assess."],
+    ["Perform the assessment","Students type or dictate each step. Vital signs appear only after the student states that they checked the monitor."],
+    ["Meet the safety requirements","Hand hygiene and patient identification are tracked throughout the assessment."],
+    ["Document","Students write a nursing note, which is scored against the 100-point rubric."]
+  ],
+  shots:[
+    ["sim-htt-01.jpg","Three modes move students from coached practice to a timed evaluation.","Mode selection with Coaching, Practice and Assessment.","Sample session","Modes"],
+    ["sim-htt-03.jpg","Assessment mode shows the timer, the safety requirements and the cranial nerves assigned for this session.","Assessment screen with a timer, safety checks and three assigned cranial nerves.","Sample session","Assessment"],
+    ["sim-htt-05.jpg","The scoring rubric is visible throughout, with points for each body system.","Quick prompts and a 100-point rubric listing points by category.","Sample session","Rubric"]
+  ],
+  arch:[
+    ["Scaffolding and fading","Hints and guidance are reduced across the three modes."],
+    ["Practice under test conditions","Assessment mode reproduces the time limit and scoring of the graded evaluation."],
+    ["Explicit criteria","The rubric is visible from the start."],
+    ["Safety first","Hand hygiene and patient identification are required for a passing score."],
+    ["Varied practice","Thirty datasets and randomly assigned cranial nerves make each attempt different."]
+  ],
+  tech:"The simulated patient and the scoring of the nursing note use Claude, a large language model, with the patient dataset and rubric included in its instructions. Voice input and read-aloud use the browser's built-in speech features."
+}
+];
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+var main=document.getElementById("main"), announcer=document.getElementById("announcer"), BASE="Simulated Patients · Dr. Sharilyn Rennie";
+
+function home(){
+  var tiles=T.map(function(t){
+    return '<li class="tile"><div class="thumb"><img src="img/'+t.shots[0][0]+'" alt="" loading="lazy"></div>'+
+      '<div class="body"><p class="tag">'+esc(t.tag)+'</p><h3><a href="#'+t.id+'">'+esc(t.title)+'</a></h3>'+
+      '<p>'+esc(t.blurb)+'</p><span class="go" aria-hidden="true">'+'View the case'+'</span></div></li>';
+  }).join("");
+  return '<div class="wrap">'+
+  '<section class="hero" aria-labelledby="h-home">'+
+    '<p class="eyebrow">Clinical reasoning simulations · Dr. Sharilyn Rennie</p>'+
+    '<h1 id="h-home">Simulated patients for <span class="hl">physiology and nursing</span> education.</h1>'+
+    '<p class="lede">These simulations place students in the role of the clinician. Students interview the patient, decide which information to collect, explain the physiology behind their decisions, and reach a diagnosis or complete an assessment. The screenshots show the student experience; the simulations are used within my courses and are not publicly available.</p>'+
+    '<div class="btns"><a class="btn" href="#tools" data-anchor="tools">See the cases</a><a class="link-cta" href="#how" data-anchor="how">Design features</a></div>'+
+  '</section>'+
+  '<section class="band" id="how" aria-labelledby="h-how">'+
+    '<p class="eyebrow">Design</p><h2 id="h-how">Design features across the simulations</h2>'+
+    '<div class="band-grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">'+
+      '<div><span class="num">01</span><h3>Information has a cost</h3><p>In the physiology cases, a limited credit bank asks students to choose tests deliberately.</p></div>'+
+      '<div><span class="num">02</span><h3>Reasoning before results</h3><p>Test results are released after the student explains the underlying physiology.</p></div>'+
+      '<div><span class="num">03</span><h3>Paced with the course</h3><p>Case data and diagnoses are released in step with class sessions and discussion.</p></div>'+
+      '<div><span class="num">04</span><h3>Support that fades</h3><p>Hints, coaching and reference ranges decrease as students progress.</p></div>'+
+    '</div>'+
+  '</section>'+
+  '<section class="section" id="tools" aria-labelledby="h-tools">'+
+    '<div class="sec-head"><div><p class="eyebrow">The cases</p><h2 id="h-tools">Three simulations</h2></div></div>'+
+    '<ul class="tiles">'+tiles+'</ul>'+
+  '</section>'+
+  '<section class="section" id="about" aria-labelledby="h-about"><div class="about">'+
+    '<div><p class="eyebrow">About</p><h2 id="h-about">Dr. Sharilyn Rennie</h2>'+
+    '<p>I teach anatomy and physiology at Solano Community College, American River College and Yuba College. My clinical background includes critical care and aerospace medicine in the U.S. Air Force and a doctorate in naturopathic medicine.</p>'+
+    '<p>I write each case and design the simulation around the reasoning students need to practice. The cases are revised as I use them with students.</p></div>'+
+  '</div></section>'+
+  '</div>';
+}
+
+function tool(t,i){
+  var prev=T[(i-1+T.length)%T.length], next=T[(i+1)%T.length];
+  var meta=t.meta.map(function(m){return '<li><b>'+esc(m[0])+'</b><span>'+esc(m[1])+'</span></li>';}).join("");
+  if(t.extraLinks){ meta+='<li><b>Links</b><span><ul class="linklist">'+t.extraLinks.map(function(l){return '<li><a href="'+l[1]+'" target="_blank" rel="noopener">'+esc(l[0])+'<span class="sr-only"> (opens in a new tab)</span></a></li>';}).join("")+'</ul></span></li>'; }
+  var glance=t.glance.map(function(g){return '<div><h3>'+esc(g[0])+'</h3><p>'+esc(g[1])+'</p></div>';}).join("");
+  var steps=t.steps.map(function(s,k){return '<li><span class="n" aria-hidden="true">'+String(k+1).padStart(2,"0")+'</span><div><h3><span class="sr-only">Step '+(k+1)+': </span>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></div></li>';}).join("");
+  var thumbs=t.shots.map(function(s,k){return '<li><button type="button" data-shot="'+k+'" aria-pressed="'+(k===0)+'" aria-label="Show screen '+(k+1)+' of '+t.shots.length+': '+esc(s[4])+'"><img src="img/'+s[0]+'" alt="" loading="lazy"><span>'+esc(s[4])+'</span></button></li>';}).join("");
+  var arch=t.arch.map(function(a){return '<div><h3>'+esc(a[0])+'</h3><p>'+esc(a[1])+'</p></div>';}).join("");
+  var open=t.link?'<a class="btn open-btn" href="'+t.link+'" target="_blank" rel="noopener">Open '+esc(t.title)+'<span class="sr-only"> (opens in a new tab)</span></a>':'<span class="soon open-btn">Link coming soon</span>';
+  return '<div class="wrap">'+
+  '<div class="p-hero"><div><a class="crumb" href="#tools" data-anchor="tools">All cases</a>'+
+    '<p class="eyebrow">'+esc(t.tag)+'</p><h1 id="page-h1" tabindex="-1">'+esc(t.title)+'</h1><p class="lede">'+esc(t.lede)+'</p>'+open+'</div>'+
+    '<ul class="meta" aria-label="Case details">'+meta+'</ul></div>'+
+  '<section class="band" aria-label="At a glance"><div class="glance">'+glance+'</div></section>'+
+  '<section class="section" aria-labelledby="h-steps"><p class="eyebrow">Student experience</p><h2 id="h-steps">What students do</h2><ol class="steps">'+steps+'</ol></section>'+
+  '<section class="section" aria-labelledby="h-screens"><p class="eyebrow">Screens</p><h2 id="h-screens">Selected screens</h2>'+
+    '<div class="viewer"><figure class="stage" style="margin:0"><div class="appbar"><span>'+esc(t.title)+'</span><span class="scr" id="stageScr">'+esc(t.shots[0][4])+'</span></div><button type="button" class="zoom" aria-label="Enlarge screenshot"><img id="stageImg" src="img/'+t.shots[0][0]+'" alt="'+esc(t.shots[0][2])+'"></button>'+
+    '<figcaption aria-live="polite"><span class="cnt" id="stageCnt">Screen 1 of '+t.shots.length+' · '+esc(t.shots[0][3])+'</span><span id="stageCap">'+esc(t.shots[0][1])+'</span></figcaption></figure>'+
+    '<ul class="thumbs" aria-label="Choose a screen">'+thumbs+'</ul></div></section>'+
+  '<section class="section" aria-labelledby="h-arch"><p class="eyebrow">Learning design</p><h2 id="h-arch">Instructional design principles</h2><div class="arch">'+arch+'</div></section>'+
+  '<section class="section" aria-labelledby="h-tech"><p class="eyebrow">Technology</p><h2 id="h-tech">Use of artificial intelligence</h2><p>'+esc(t.tech)+'</p></section>'+
+  '<nav class="section pager" aria-label="More cases"><a href="#'+prev.id+'"><small>Previous</small><strong>'+esc(prev.title)+'</strong></a><a class="next" href="#'+next.id+'"><small>Next</small><strong>'+esc(next.title)+'</strong></a></nav>'+
+  '</div>';
+}
+
+function bindViewer(t){
+  var img=document.getElementById("stageImg"),cap=document.getElementById("stageCap"),cnt=document.getElementById("stageCnt"),scr=document.getElementById("stageScr");
+  var btns=[].slice.call(main.querySelectorAll(".thumbs button")),cur=0;
+  function show(k){cur=k;var s=t.shots[k];img.src="img/"+s[0];img.alt=s[2];cap.textContent=s[1];scr.textContent=s[4];cnt.textContent="Screen "+(k+1)+" of "+t.shots.length+" · "+s[3];btns.forEach(function(b,j){b.setAttribute("aria-pressed",String(j===k));});}
+  btns.forEach(function(b){b.addEventListener("click",function(){show(+b.getAttribute("data-shot"));});});
+  var lb=document.getElementById("lightbox");
+  main.querySelector(".zoom").addEventListener("click",function(){var s=t.shots[cur];var li=document.getElementById("lbImg");li.src="img/"+s[0];li.alt=s[2];document.getElementById("lbTitle").textContent=t.title+", screen "+(cur+1)+" of "+t.shots.length;if(lb.showModal){lb.showModal();}else{lb.setAttribute("open","");}document.getElementById("lbClose").focus();});
+}
+document.getElementById("lbClose").addEventListener("click",function(){var lb=document.getElementById("lightbox");if(lb.close)lb.close();else lb.removeAttribute("open");});
+document.getElementById("lightbox").addEventListener("close",function(){var z=main.querySelector(".zoom");if(z)z.focus();});
+document.getElementById("lightbox").addEventListener("click",function(e){if(e.target===this&&this.close)this.close();});
+
+var ANCHORS={tools:1,how:1,about:1,home:1};
+function route(){
+  var h=(location.hash||"#home").slice(1),idx=-1;
+  for(var i=0;i<T.length;i++){if(T[i].id===h)idx=i;}
+  if(idx>-1){
+    main.innerHTML=tool(T[idx],idx);document.title=T[idx].title+" · "+BASE;bindViewer(T[idx]);window.scrollTo(0,0);
+    var h1=document.getElementById("page-h1");if(h1)h1.focus({preventScroll:true});announcer.textContent=T[idx].title;
+  } else {
+    if(!main.querySelector("#h-home")){main.innerHTML=home();}
+    document.title=BASE;
+    if(h!=="home"&&ANCHORS[h]){var t=document.getElementById(h);if(t){t.scrollIntoView();var hd=t.querySelector("h2")||t;hd.setAttribute("tabindex","-1");hd.focus({preventScroll:true});}}
+    else{window.scrollTo(0,0);}
+  }
+  sendHeight();
+}
+window.addEventListener("hashchange",route);
+
+function sendHeight(){try{window.parent.postMessage({id:"study-tools",type:"resize",height:document.documentElement.scrollHeight},"*");}catch(e){}}
+window.addEventListener("load",sendHeight);window.addEventListener("resize",sendHeight);
+if("ResizeObserver" in window){new ResizeObserver(sendHeight).observe(document.body);}
+route();
+})();
+</script>
+</body>
+</html>
